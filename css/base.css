@@ -1,0 +1,158 @@
+/* ========================================
+   base.css — CSS Variables, Reset, Typography
+   Elian Personal Site
+   ======================================== */
+
+/* ---------- Font Faces ---------- */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&display=swap');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+  font-display: swap;
+}
+
+/* ---------- CSS Variables ---------- */
+:root {
+  /* Light theme (default) */
+  --color-text: #111657;
+  --color-bg: #F7F5E3;
+  --color-accent: #1a237e;
+  --color-muted: #6b7280;
+  --color-border: #e5e0cc;
+  --color-hero-overlay: rgba(255, 255, 255, 0.15);
+  --color-glass: rgba(17, 22, 87, 0.08);
+  --color-glass-border: rgba(17, 22, 87, 0.2);
+
+  /* Typography */
+  --font-display: 'Playfair Display', 'STZhongsong', '华文中宋', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-cjk: 'STZhongsong', '华文中宋', serif;
+
+  /* Scale */
+  --text-hero: clamp(3rem, 8vw, 6rem);
+  --text-h1: 2.5rem;
+  --text-h2: 1.75rem;
+  --text-body: 1rem;
+  --text-caption: 0.875rem;
+  --text-small: 0.75rem;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+
+  /* Layout */
+  --sidebar-width: 320px;
+  --nav-height: 64px;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 200ms var(--ease-in-out);
+  --transition-slow: 500ms var(--ease-out-expo);
+
+  /* Cursor */
+  --cursor-size: 32px;
+  --cursor-hover-scale: 1.6;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --color-text: #F7F5E3;
+  --color-bg: #0a0d2e;
+  --color-accent: #5c6bc0;
+  --color-muted: #9ca3af;
+  --color-border: #1e2358;
+  --color-hero-overlay: rgba(0, 0, 0, 0.4);
+  --color-glass: rgba(247, 245, 227, 0.08);
+  --color-glass-border: rgba(247, 245, 227, 0.15);
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none; /* Hide default cursor for custom one */
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+  min-height: 100vh;
+}
+
+/* Restore cursor for inputs and interactive elements that need it */
+input, textarea, select, button {
+  cursor: none;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  cursor: none;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ---------- Selection ---------- */
+::selection {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
+}
