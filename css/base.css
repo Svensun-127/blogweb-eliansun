@@ -1,37 +1,30 @@
 /* ========================================
-   base.css — CSS Variables, Reset, Typography
+   base.css 鈥?CSS Variables, Reset, Typography
    Elian Personal Site
    ======================================== */
 
 /* ---------- Font Faces ---------- */
-@font-face {
-  font-family: 'Playfair Display';
-  src: url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&display=swap');
-  font-display: swap;
-}
 
-@font-face {
-  font-family: 'Inter';
-  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
-  font-display: swap;
-}
 
 /* ---------- CSS Variables ---------- */
 :root {
-  /* Light theme (default) */
-  --color-text: #111657;
+  /* Light theme (default) — #0b1a30 + #F7F5E3 only */
+  --color-text: #0b1a30;
   --color-bg: #F7F5E3;
-  --color-accent: #1a237e;
-  --color-muted: #6b7280;
-  --color-border: #e5e0cc;
-  --color-hero-overlay: rgba(255, 255, 255, 0.15);
-  --color-glass: rgba(17, 22, 87, 0.08);
-  --color-glass-border: rgba(17, 22, 87, 0.2);
+  --color-accent: #0b1a30;
+  --color-muted: rgba(8, 14, 69, 0.50);
+  --color-border: rgba(8, 14, 69, 0.12);
+  --color-hero-overlay: #F7F5E3;
+
+  /* Controls */
+  --color-control-bg: #F7F5E3;
+  --color-control-border: rgba(8, 14, 69, 0.20);
+  --color-control-text: #0b1a30;
 
   /* Typography */
-  --font-display: 'Playfair Display', 'STZhongsong', '华文中宋', serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-cjk: 'STZhongsong', '华文中宋', serif;
+  --font-display: 'Cambria Math', 'SimSun', '宋体', serif;
+  --font-body: 'Cambria Math', serif;
+  --font-cjk: 'SimSun', '宋体', serif;
 
   /* Scale */
   --text-hero: clamp(3rem, 8vw, 6rem);
@@ -58,21 +51,21 @@
   --transition-fast: 200ms var(--ease-in-out);
   --transition-slow: 500ms var(--ease-out-expo);
 
-  /* Cursor */
-  --cursor-size: 32px;
-  --cursor-hover-scale: 1.6;
 }
 
 /* Dark theme */
 [data-theme="dark"] {
   --color-text: #F7F5E3;
-  --color-bg: #0a0d2e;
-  --color-accent: #5c6bc0;
-  --color-muted: #9ca3af;
-  --color-border: #1e2358;
-  --color-hero-overlay: rgba(0, 0, 0, 0.4);
-  --color-glass: rgba(247, 245, 227, 0.08);
-  --color-glass-border: rgba(247, 245, 227, 0.15);
+  --color-bg: #0c1929;
+  --color-accent: #F7F5E3;
+  --color-muted: rgba(247, 245, 227, 0.50);
+  --color-border: rgba(247, 245, 227, 0.15);
+  --color-hero-overlay: #0c1929;
+
+  /* Controls */
+  --color-control-bg: #0c1929;
+  --color-control-border: rgba(247, 245, 227, 0.30);
+  --color-control-text: #F7F5E3;
 }
 
 /* ---------- Reset ---------- */
@@ -88,7 +81,6 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none; /* Hide default cursor for custom one */
 }
 
 body {
@@ -101,16 +93,10 @@ body {
   min-height: 100vh;
 }
 
-/* Restore cursor for inputs and interactive elements that need it */
-input, textarea, select, button {
-  cursor: none;
-}
-
 a {
   color: var(--color-text);
   text-decoration: none;
   transition: color var(--transition-fast);
-  cursor: none;
 }
 
 a:hover {
@@ -156,3 +142,4 @@ h1, h2, h3, h4 {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-muted);
 }
+

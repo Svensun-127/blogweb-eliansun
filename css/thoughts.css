@@ -1,0 +1,119 @@
+/* ========================================
+   thoughts.css — Thoughts 文章列表 + 详情
+   ======================================== */
+
+/* ---------- 列表视图 ---------- */
+.thoughts-list-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.thoughts-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 560px;
+}
+
+/* 单篇文章条目 */
+.thought-entry {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.thought-entry:hover {
+  background-color: var(--color-border);
+}
+
+/* 顶部加粗大标题 — 深蓝，居中 */
+.thought-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 var(--space-sm) 0;
+  text-align: center;
+}
+
+/* 列表摘要 — 首句 + 省略号 */
+.thought-excerpt {
+  color: #555;
+  font-size: var(--text-body);
+  margin: 0 0 var(--space-xs) 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* 发布日期 */
+.thought-date {
+  font-size: var(--text-caption);
+  color: var(--color-muted);
+  margin-top: var(--space-xs);
+}
+
+/* ---------- 详情视图 ---------- */
+#thought-detail-view {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 620px;
+  padding: var(--space-md) 0;
+}
+
+.thought-back-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  color: var(--color-muted);
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: var(--space-lg);
+  transition: color var(--transition-fast);
+}
+
+.thought-back-btn:hover {
+  color: var(--color-text);
+}
+
+.thought-detail-article {
+  width: fit-content;
+  max-width: 100%;
+  align-self: center;
+}
+
+.thought-detail-article .thought-poem {
+  margin: 0;
+  font-family: inherit;
+  font-size: var(--text-body);
+  line-height: 2;
+  color: #555;
+  white-space: pre-wrap;
+  text-align: left;
+}
+
+.thought-signature {
+  margin: var(--space-md) 0 0 0;
+  font-size: var(--text-body);
+  line-height: 2;
+  color: #555;
+  text-align: right;
+}
+
+.thought-end-mark {
+  width: 100%;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: var(--text-caption);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+  letter-spacing: 0.15em;
+}

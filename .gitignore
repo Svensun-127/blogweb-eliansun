@@ -1,0 +1,9 @@
+# IDE
+.vscode/
+
+# Claude Code
+.claude/
+
+# Temp / preview files
+preview.png
+assets/temp-*

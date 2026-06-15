@@ -1,0 +1,12 @@
+/* ========================================
+   podcast.css — Podcast page content
+   ======================================== */
+
+#page-podcast .page-placeholder {
+  text-align: center;
+}
+
+#page-podcast .page-placeholder p {
+  font-size: var(--text-caption);
+  color: #555;               /* 【文字颜色】占位文字改为深灰色 */
+}

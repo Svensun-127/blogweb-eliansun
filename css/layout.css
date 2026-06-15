@@ -2,35 +2,55 @@
    layout.css — Left Sidebar + Right Main Area Grid
    ======================================== */
 
+/* ---------- App container: offset by sidebar width ---------- */
 #app {
-  display: grid;
-  grid-template-columns: var(--sidebar-width) 1fr;
   min-height: 100vh;
+  padding-left: calc(100vw / 3.414);
 }
 
-/* ---------- Left Sidebar ---------- */
-#sidebar {
-  position: sticky;
-  top: 0;
-  height: 100vh;
+/* ---------- Right scrollable main area ---------- */
+/* 【滚动容器】固定高度=视口，overflow-y:auto 开启垂直滚动，max-height 硬性约束 */
+/* 【水平居中】左右等量内边距将整块内容居中在右侧容器内 */
+#main-area {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: var(--space-lg);
-  border-right: 1px solid var(--color-border);
-  background-color: var(--color-bg);
-  transition: background-color var(--transition-slow);
-  z-index: 10;
-  gap: var(--space-lg);
+  height: 100vh;
+  max-height: 100vh;          /* 【滚动边界】硬性限制最大高度，内容再多也不超出视口 */
+  overflow-y: auto;           /* 【滚动行为】允许容器内垂直滚动 */
+  overflow-x: hidden;         /* 禁止水平溢出 */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-left: clamp(2rem, 5vw, 5rem);   /* 【水平居中】左侧留白 */
+  padding-right: clamp(2rem, 5vw, 5rem);  /* 【水平居中】右侧留白，与左侧对称 */
+}
+#main-area::-webkit-scrollbar {
+  display: none;
 }
 
+/* ---------- Left Sidebar (fixed) ---------- */
+#sidebar {
+  width: calc(100vw / 3.414);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: var(--color-bg);
+  transition: background-color var(--transition-slow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.667rem;          /* 2/3 of original var(--space-lg) = 2.5rem */
+  border-right: 1px solid var(--color-border);
+  z-index: 10;
+  gap: 1.667rem;              /* 2/3 of original var(--space-lg), scales spacing between portrait / intro / about-info */
+}
+
+/* Portrait image container — scaled to 66.67% width, centered by flex parent */
 #portrait-container {
-  width: 180px;
-  height: 180px;
+  width: 66.67%;
   border-radius: 4px;
   overflow: hidden;
-  transition: transform var(--transition-slow);
 }
 
 #portrait-container:hover {
@@ -38,18 +58,26 @@
 }
 
 #portrait-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 400px;          /* 2/3 of original 600px */
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: contain;
   transition: transform var(--transition-slow);
 }
 
 #portrait-container:hover img {
-  transform: scale(1.08);
+  transform: scale(1.02);
+}
+
+/* Intro heading — font-size KEPT at 2rem, container width scaled to 2/3 */
+#intro-text {
+  width: 66.67%;
 }
 
 #intro-text h2 {
-  font-size: var(--text-h2);
+  font-size: 2rem;            /* UNCHANGED — user requirement: text stays at original size */
   font-weight: 700;
   text-align: center;
   color: var(--color-text);
@@ -59,31 +87,43 @@
   font-family: var(--font-cjk);
 }
 
-#keywords {
+/* About-info block — container and internal gaps scaled to 2/3, font-size unchanged */
+#about-info {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-xs) var(--space-sm);
-  max-width: 260px;
+  flex-direction: column;
+  gap: 0.667rem;              /* 2/3 of original var(--space-sm) = 1rem */
+  align-items: flex-start;
+  width: 66.67%;
 }
 
-#keywords span {
-  font-size: var(--text-caption);
+#about-info .about-item {
+  display: flex;
+  align-items: center;
+  gap: 0.667rem;              /* 2/3 of original var(--space-sm) = 1rem */
+  font-size: 1rem;            /* UNCHANGED — user requirement: text stays at original size */
   color: var(--color-muted);
-  white-space: nowrap;
   transition: color var(--transition-fast);
 }
 
-#keywords span:hover {
+#about-info .about-item:hover {
+  color: var(--color-text);
+}
+
+#about-info .about-item .icon-line {
+  flex-shrink: 0;
+}
+
+#about-info .about-item a {
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+#about-info .about-item a:hover {
   color: var(--color-text);
 }
 
 /* ---------- Right Main Area ---------- */
-#main-area {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
 
 /* Hero Banner */
 #hero-banner {
@@ -92,13 +132,14 @@
   height: 45vh;
   min-height: 320px;
   overflow: hidden;
+  flex-shrink: 0;            /* 【滚动限制】禁止hero被flex容器压缩，保持45vh高度 */
 }
 
 #hero-banner img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: 60% center;
 }
 
 #hero-overlay {
@@ -115,8 +156,7 @@
   font-family: var(--font-display);
   font-size: var(--text-hero);
   font-weight: 900;
-  font-style: italic;
-  color: #111657;
+  color: var(--color-text);
   letter-spacing: -0.02em;
   opacity: 0;
   transform: translateX(-30px);
@@ -130,58 +170,49 @@
 
 /* Content Area — between hero and nav */
 #content-area {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-xl);
-  position: relative;
-  overflow: hidden;
+  display: block;
+  flex-shrink: 0;            /* 【滚动限制】禁止内容区被flex容器压缩，保持自然高度 */
 }
 
-/* Page panels */
+/* Page sections — 默认隐藏，仅当前激活页可见 */
+/* 【路由分离】display:none 隐藏非激活页，移除 DOM 流，互不干扰 */
 .page {
-  position: absolute;
-  inset: var(--space-xl);
-  display: flex;
+  display: none;             /* 【路由分离】默认隐藏所有页面 */
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
-  transition: opacity var(--transition-slow), transform var(--transition-slow);
+  justify-content: flex-start;
+  padding: var(--space-xl);
+}
+.page.visible {
+  display: flex;             /* 【路由分离】仅当前激活页恢复为 flex 布局可见 */
 }
 
-.page.active {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-/* Bottom Navigation */
+/* Bottom Navigation — sticky top bar */
+/* 【导航固定】sticky定位吸附在滚动容器顶部，始终可见，不受滚动影响 */
 #bottom-nav {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: var(--space-xl);
+  padding-left: clamp(2rem, 6vw, 5rem);
   height: var(--nav-height);
   border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
   background-color: var(--color-bg);
   transition: background-color var(--transition-slow);
-  position: sticky;
-  bottom: 0;
-  z-index: 10;
+  position: sticky;          /* 【导航固定】粘性定位，滚动时吸附在容器顶部 */
+  top: 0;                    /* 【导航固定】吸附偏移=0，紧贴 #main-area 顶端 */
+  z-index: 20;               /* 确保覆盖下方滚动内容 */
+  flex-shrink: 0;            /* 【滚动限制】禁止导航栏被flex容器压缩 */
 }
 
 #bottom-nav button {
   background: none;
   border: none;
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.85rem;
   font-weight: 600;
   color: var(--color-muted);
-  cursor: none;
   letter-spacing: 0.02em;
   transition: color var(--transition-fast), letter-spacing var(--transition-fast);
   padding: var(--space-xs) var(--space-sm);
@@ -193,36 +224,45 @@
   letter-spacing: 0.06em;
 }
 
-/* ---------- Controls (top-right) ---------- */
+/* ---------- Controls (top-right fixed) ---------- */
 #controls {
   position: fixed;
   top: var(--space-md);
   right: var(--space-md);
   display: flex;
+  align-items: center;
   gap: var(--space-sm);
   z-index: 100;
 }
 
 #controls button {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--color-border);
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-body);
-  font-size: var(--text-caption);
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: none;
-  transition: background-color var(--transition-fast), border-color var(--transition-fast);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--color-control-border);
+  background: var(--color-control-bg);
+  color: var(--color-control-text);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
 }
 
 #controls button:hover {
-  border-color: var(--color-text);
+  filter: brightness(0.92);
+}
+
+#lang-toggle {
+  min-width: 42px;
+  padding: 0 16px;
+  border-radius: 21px;
+}
+
+#theme-toggle {
+  width: 42px;
+  padding: 0;
+  border-radius: 10px;
 }
 
 #controls button svg {
