@@ -129,6 +129,15 @@ def parse_feed(xml_text: str) -> dict:
             }
         )
 
+    # Inject hasTranscript / hasChineseTranscript flags
+    transcripts_dir = os.path.join("assets", "transcripts")
+    for ep in episodes:
+        guid = ep["guid"]
+        en_path = os.path.join(transcripts_dir, f"{guid}-en.txt")
+        zh_path = os.path.join(transcripts_dir, f"{guid}-zh.txt")
+        ep["hasTranscript"] = os.path.exists(en_path)
+        ep["hasChineseTranscript"] = os.path.exists(zh_path)
+
     return {"channel": channel_data, "episodes": episodes}
 
 

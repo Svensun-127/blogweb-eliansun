@@ -1,0 +1,407 @@
+1
+00:00:00,000 --> 00:00:07,000
+Hello everybody, today is the first episode of this podcast.
+
+2
+00:00:07,000 --> 00:00:12,000
+Okay, first let me talk about this podcast, right?
+
+3
+00:00:12,000 --> 00:00:17,000
+So, who am I?
+
+4
+00:00:17,000 --> 00:00:22,000
+I am Alian Sun, the host of this podcast.
+
+5
+00:00:22,000 --> 00:00:29,000
+So I am a college student, freshman at college.
+
+6
+00:00:29,000 --> 00:00:32,960
+I'm not a person from English countries.
+
+7
+00:00:32,960 --> 00:00:37,000
+I'm a Chinese, so you probably say it from my name.
+
+8
+00:00:37,000 --> 00:00:43,000
+Although I'm not, although English is not my primary language,
+
+9
+00:00:43,000 --> 00:00:48,000
+but I want to practice my English through this podcast from today,
+
+10
+00:00:48,000 --> 00:00:50,000
+from the moment right now.
+
+11
+00:00:50,000 --> 00:00:55,000
+Okay, so why start this podcast?
+
+12
+00:00:55,000 --> 00:00:58,000
+I just want to record.
+
+13
+00:00:58,000 --> 00:01:06,000
+record the process I practiced my spoken English through this little channel.
+
+14
+00:01:06,000 --> 00:01:17,000
+Probably currently the podcast only run by myself, but I believe in the future I will invite some guests
+
+15
+00:01:17,000 --> 00:01:27,000
+and the podcast will not only...
+
+16
+00:01:27,000 --> 00:01:33,000
+Yeah, not only for me, but for everyone, right?
+
+17
+00:01:33,000 --> 00:01:41,239
+Not just I'm talking, always talking, this and that right here, but I will invite others.
+
+18
+00:01:41,239 --> 00:01:44,740
+So anyway, this is a good try, right?
+
+19
+00:01:44,740 --> 00:01:51,799
+The first try of my pure English podcast, start from today.
+
+20
+00:01:51,799 --> 00:01:55,879
+Well, next I will talk about the problems of editing.
+
+21
+00:01:55,879 --> 00:02:04,879
+You may see that I'm not a very fluent speaker.
+
+22
+00:02:04,879 --> 00:02:12,879
+But I won't add it a lot because it's just a notebook, but not in handwriting, but in audio.
+
+23
+00:02:12,879 --> 00:02:18,879
+So I want to record my voice, record my English through this podcast.
+
+24
+00:02:18,879 --> 00:02:25,859
+And I will probably upload the audio to upload the audio to AI or
+
+25
+00:02:25,879 --> 00:02:28,879
+or let others to listen.
+
+26
+00:02:28,879 --> 00:02:30,879
+What about my spoken English?
+
+27
+00:02:30,879 --> 00:02:35,879
+And they will have a revision or give me some of the voices.
+
+28
+00:02:35,879 --> 00:02:37,879
+So I can be better, right?
+
+29
+00:02:37,879 --> 00:02:40,879
+But at first, as the channel's name,
+
+30
+00:02:40,879 --> 00:02:42,879
+you should speed out loud.
+
+31
+00:02:42,879 --> 00:02:44,879
+Yeah, we should be out.
+
+32
+00:02:44,879 --> 00:02:48,879
+I think I am probably a traditional education,
+
+33
+00:02:48,879 --> 00:02:52,879
+educated Chinese student.
+
+34
+00:02:52,879 --> 00:02:54,879
+We, at the...
+
+35
+00:02:54,879 --> 00:02:55,879
+Actually, we have...
+
+36
+00:02:55,879 --> 00:02:59,879
+We started to learn English in a very early age.
+
+37
+00:02:59,879 --> 00:03:04,879
+But few of us speak English.
+
+38
+00:03:04,879 --> 00:03:07,879
+You don't need to say every day speaking English,
+
+39
+00:03:07,879 --> 00:03:13,879
+but we rarely speak English out in whether in class or after class.
+
+40
+00:03:13,879 --> 00:03:18,879
+Most of us are good at writing, reading, and listening,
+
+41
+00:03:18,879 --> 00:03:23,879
+but few of us can speak very confidently,
+
+42
+00:03:23,879 --> 00:03:24,879
+not even close to English.
+
+43
+00:03:24,879 --> 00:03:29,879
+close to fluent, the level of fluency.
+
+44
+00:03:29,879 --> 00:03:32,879
+So it's hard, it's hard to speak out.
+
+45
+00:03:32,879 --> 00:03:37,879
+For me, it's a process of stepping out my comfort zone.
+
+46
+00:03:37,879 --> 00:03:41,879
+But I believe as I practice, practice makes perfect, right?
+
+47
+00:03:41,879 --> 00:03:45,879
+It's an old word.
+
+48
+00:03:45,879 --> 00:03:51,879
+As I speak more, speak out loud, I can make progress.
+
+49
+00:03:51,879 --> 00:03:53,879
+Well, I just said I won't do a lot of it.
+
+50
+00:03:53,879 --> 00:03:57,879
+I won't do a lot of editing, something like that.
+
+51
+00:03:57,879 --> 00:04:03,379
+But I would do some basic and essential one, like to reduce the noise, right?
+
+52
+00:04:03,379 --> 00:04:09,379
+I just learned a software called Audacity.
+
+53
+00:04:09,379 --> 00:04:14,879
+It is really useful, actually, especially friendly for the beginners like me.
+
+54
+00:04:14,879 --> 00:04:20,379
+You can use it to reduce your noise to make your audio better.
+
+55
+00:04:20,379 --> 00:04:23,379
+Whatever is a very useful tool.
+
+56
+00:04:23,379 --> 00:04:28,379
+And I want to recommend this to do everyone.
+
+57
+00:04:28,379 --> 00:04:36,379
+So anyway, another reason I started this podcast is not only for practice my English.
+
+58
+00:04:36,379 --> 00:04:46,379
+You can say it's to practice my English, but I practice my English for, partly for, to prepare the TOEFL test,
+
+59
+00:04:46,379 --> 00:04:52,379
+because I want to have a career development in English countries in the future.
+
+60
+00:04:52,379 --> 00:04:53,379
+So I think.
+
+61
+00:04:53,379 --> 00:05:05,379
+Even I am a freshman in college, I think in the future, English will most likely to be the official, not official language.
+
+62
+00:05:05,379 --> 00:05:11,379
+It will be a working language for me, yes.
+
+63
+00:05:11,379 --> 00:05:22,379
+I plan to get my master degree in the United States.
+
+64
+00:05:22,379 --> 00:05:26,379
+And for jobs, I don't know, whatever.
+
+65
+00:05:26,379 --> 00:05:28,379
+We can't predict the future, right?
+
+66
+00:05:28,379 --> 00:05:30,379
+So just chill.
+
+67
+00:05:30,379 --> 00:05:34,379
+Okay, there is something more about myself.
+
+68
+00:05:34,379 --> 00:05:39,379
+You may notice that I have a slight stutter, is that correct?
+
+69
+00:05:39,379 --> 00:05:46,379
+I know there are some doctor, especially in North America,
+
+70
+00:05:46,379 --> 00:05:49,379
+who focus on curing this problem,
+
+71
+00:05:49,379 --> 00:05:51,379
+but actually I haven't seen
+
+72
+00:05:51,379 --> 00:06:00,379
+such doctors to for curing these problems in China.
+
+73
+00:06:00,379 --> 00:06:08,379
+So it's not a very common thing to meet a doctor just for this problem.
+
+74
+00:06:08,379 --> 00:06:14,379
+I think a lot of Chinese students like me are not confident to speak English out.
+
+75
+00:06:14,379 --> 00:06:20,379
+Yes, we are in a living in an educational environment.
+
+76
+00:06:20,379 --> 00:06:26,379
+education environment that is not encouraged to speak your own ideas.
+
+77
+00:06:26,379 --> 00:06:30,379
+People like me may have a lot of ideas in our mind,
+
+78
+00:06:30,379 --> 00:06:35,379
+but we just think, we just,
+
+79
+00:06:35,379 --> 00:06:39,379
+you can say a thinker, but not a talker.
+
+80
+00:06:39,379 --> 00:06:45,379
+I think we just think a lot, think more than speak.
+
+81
+00:06:45,379 --> 00:06:49,379
+Sometimes we need to express our ideas, right?
+
+82
+00:06:49,379 --> 00:06:52,379
+So that's why I'm here.
+
+83
+00:06:52,379 --> 00:06:56,379
+It's my first time because it's my first time
+
+84
+00:06:56,379 --> 00:07:01,379
+I might be a little nervous, a little,
+
+85
+00:07:01,379 --> 00:07:04,379
+the stutter, right?
+
+86
+00:07:04,379 --> 00:07:06,379
+But I think it's okay.
+
+87
+00:07:06,379 --> 00:07:09,379
+You don't need to be perfect as your first time.
+
+88
+00:07:09,379 --> 00:07:13,379
+It's a very good try, yes.
+
+89
+00:07:13,379 --> 00:07:15,379
+So I want to challenge myself.
+
+90
+00:07:15,379 --> 00:07:18,379
+I always want to challenge myself.
+
+91
+00:07:18,379 --> 00:07:28,379
+like step out every day like I read in the introduction, what it's called.
+
+92
+00:07:28,379 --> 00:07:30,379
+Yes, a brief introduction of my channel.
+
+93
+00:07:30,379 --> 00:07:31,379
+You can see it right.
+
+94
+00:07:31,379 --> 00:07:37,379
+So whatever, all in all is a good try, good start.
+
+95
+00:07:37,379 --> 00:07:40,379
+So let's do it in the future.
+
+96
+00:07:40,379 --> 00:07:47,379
+That's all for today's first episode of my channel and a few
+
+97
+00:07:47,379 --> 00:07:51,379
+If you like to give me some advises or suggestions,
+
+98
+00:07:51,379 --> 00:07:54,379
+I would very likely to hear that.
+
+99
+00:07:54,379 --> 00:07:57,379
+And thanks for your supporting.
+
+100
+00:07:57,379 --> 00:08:00,379
+See you next episode.
+
+101
+00:08:00,379 --> 00:08:02,379
+Stay tuned.
+
+102
+00:08:02,379 --> 00:08:04,379
+Have a good day.

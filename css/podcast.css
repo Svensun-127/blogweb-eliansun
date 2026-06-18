@@ -286,10 +286,16 @@
    字幕 Transcript
    ======================================== */
 
-/* ---------- 入口按钮 ---------- */
-.podcast-transcript-toggle {
-  display: block;
+/* ---------- 字幕入口按钮组 ---------- */
+.podcast-transcript-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
   margin: var(--space-md) auto 0;
+}
+
+.podcast-transcript-view-btn,
+.podcast-transcript-download-btn {
   padding: var(--space-xs) var(--space-md);
   background: none;
   border: 1px solid var(--color-border);
@@ -301,7 +307,8 @@
   transition: all var(--transition-fast);
 }
 
-.podcast-transcript-toggle:hover {
+.podcast-transcript-view-btn:hover,
+.podcast-transcript-download-btn:hover {
   border-color: var(--color-text);
   color: var(--color-text);
 }

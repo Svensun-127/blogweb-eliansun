@@ -25,7 +25,8 @@
   var detailLink     = podcastPage.querySelector('.podcast-listen-xiaoyuzhou');
 
   /* 字幕 DOM */
-  var transcriptToggle  = podcastPage.querySelector('.podcast-transcript-toggle');
+  var transcriptViewBtn   = podcastPage.querySelector('.podcast-transcript-view-btn');
+  var transcriptDownloadBtn = podcastPage.querySelector('.podcast-transcript-download-btn');
   var transcriptContainer = podcastPage.querySelector('.podcast-transcript');
   var transcriptLoading = podcastPage.querySelector('.podcast-transcript-loading');
   var transcriptContent = podcastPage.querySelector('.podcast-transcript-content');
@@ -171,8 +172,12 @@
     }
 
     /* 字幕：根据 hasTranscript 控制入口按钮 */
-    if (transcriptToggle) {
-      transcriptToggle.style.display = ep.hasTranscript ? '' : 'none';
+    var hasTrans = ep.hasTranscript;
+    if (transcriptViewBtn) {
+      transcriptViewBtn.style.display = hasTrans ? '' : 'none';
+    }
+    if (transcriptDownloadBtn) {
+      transcriptDownloadBtn.style.display = hasTrans ? '' : 'none';
     }
     closeTranscript();
 
@@ -183,18 +188,21 @@
     transcriptVisible = false;
     if (transcriptContainer) transcriptContainer.style.display = 'none';
     if (transcriptContent) transcriptContent.innerHTML = '';
-    updateTranscriptToggleText();
+    updateTranscriptViewBtn();
   }
 
-  function updateTranscriptToggleText() {
-    if (!transcriptToggle) return;
+  function updateTranscriptViewBtn() {
+    if (!transcriptViewBtn) return;
     var lang = (localStorage.getItem('elian-lang') || 'en') === 'zh' ? 'zh' : 'en';
-    var key = transcriptVisible ? 'podcast-transcript-hide' : 'podcast-transcript-show';
+    var key = transcriptVisible ? 'podcast-transcript-hide' : 'podcast-transcript-view';
     var i18n = {
-      en: { 'podcast-transcript-show': 'Show Transcript', 'podcast-transcript-hide': 'Hide Transcript' },
-      zh: { 'podcast-transcript-show': '显示字幕', 'podcast-transcript-hide': '隐藏字幕' }
+      en: { 'podcast-transcript-view': 'View Transcript', 'podcast-transcript-hide': 'Hide Transcript', 'podcast-transcript-download': 'Download Transcript' },
+      zh: { 'podcast-transcript-view': '查看字幕', 'podcast-transcript-hide': '隐藏字幕', 'podcast-transcript-download': '下载字幕' }
     };
-    transcriptToggle.textContent = i18n[lang][key];
+    transcriptViewBtn.textContent = i18n[lang][key];
+    if (transcriptDownloadBtn) {
+      transcriptDownloadBtn.textContent = i18n[lang]['podcast-transcript-download'];
+    }
   }
 
   /* ========== 字幕：SRT 解析 + 渲染 ========== */
@@ -251,7 +259,7 @@
       /* 已缓存，直接渲染 */
       transcriptVisible = true;
       if (transcriptContainer) transcriptContainer.style.display = 'block';
-      updateTranscriptToggleText();
+      updateTranscriptViewBtn();
       renderTranscript();
       return;
     }
@@ -260,7 +268,7 @@
     if (transcriptLoading) transcriptLoading.style.display = 'flex';
     if (transcriptContainer) transcriptContainer.style.display = 'block';
     transcriptVisible = true;
-    updateTranscriptToggleText();
+    updateTranscriptViewBtn();
 
     /* fetch English transcript */
     var enPromise = fetch('assets/transcripts/' + guid + '-en.txt')
@@ -294,9 +302,9 @@
       });
   }
 
-  /* 字幕 toggle 点击 */
-  if (transcriptToggle) {
-    transcriptToggle.addEventListener('click', function () {
+  /* 查看字幕按钮 */
+  if (transcriptViewBtn) {
+    transcriptViewBtn.addEventListener('click', function () {
       if (!currentGuid) return;
       var ep = findEpisode(currentGuid);
       if (!ep || !ep.hasTranscript) return;
@@ -306,6 +314,28 @@
       } else {
         loadTranscript(currentGuid, ep);
       }
+    });
+  }
+
+  /* 下载字幕按钮 */
+  if (transcriptDownloadBtn) {
+    transcriptDownloadBtn.addEventListener('click', function () {
+      if (!currentGuid) return;
+      var ep = findEpisode(currentGuid);
+      if (!ep || !ep.hasTranscript) return;
+
+      var lang = (localStorage.getItem('elian-lang') || 'en') === 'zh' ? 'zh' : 'en';
+      var files = [currentGuid + '-en.txt'];
+      if (lang === 'zh') files.push(currentGuid + '-zh.txt');
+
+      files.forEach(function (filename) {
+        var a = document.createElement('a');
+        a.href = 'assets/transcripts/' + filename;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      });
     });
   }
 
@@ -461,7 +491,7 @@
   /* 语言切换时重渲染字幕 + 更新按钮文字 */
   window.updateTranscriptLang = function () {
     if (transcriptVisible && currentGuid && transcriptLoaded[currentGuid]) {
-      updateTranscriptToggleText();
+      updateTranscriptViewBtn();
       renderTranscript();
     }
   };

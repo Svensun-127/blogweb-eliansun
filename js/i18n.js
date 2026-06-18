@@ -36,8 +36,9 @@
       "tag-spurs": "Spurs Fan🏀👽",
       "tag-dogs": "Dogs🐾",
       "tag-buddhism": "Buddhism🪷",
-      "podcast-transcript-show": "Show Transcript",
+      "podcast-transcript-view": "View Transcript",
       "podcast-transcript-hide": "Hide Transcript",
+      "podcast-transcript-download": "Download Transcript",
       "podcast-transcript-loading": "Loading transcript...",
       "podcast-transcript-none": "No transcript available"
     },
@@ -73,8 +74,9 @@
       "tag-spurs": "马刺球迷🏀👽",
       "tag-dogs": "狗狗🐾",
       "tag-buddhism": "佛学🪷",
-      "podcast-transcript-show": "显示字幕",
+      "podcast-transcript-view": "查看字幕",
       "podcast-transcript-hide": "隐藏字幕",
+      "podcast-transcript-download": "下载字幕",
       "podcast-transcript-loading": "加载字幕中…",
       "podcast-transcript-none": "暂无字幕"
     }
