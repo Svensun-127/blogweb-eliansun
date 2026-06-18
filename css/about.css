@@ -20,7 +20,7 @@
 .about-section .about-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: var(--space-sm);
   align-items: flex-start;
 }
 
@@ -28,4 +28,11 @@
   font-size: 1.125rem;
   color: var(--color-muted);
   line-height: 1.8;
+  padding-left: 1.2em;
+  text-indent: -1.2em;
+}
+
+.about-section .about-list li::before {
+  content: '\2014\00a0';
+  color: var(--color-border);
 }

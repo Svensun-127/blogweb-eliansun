@@ -99,11 +99,17 @@ body {
 a {
   color: var(--color-text);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  background-image: linear-gradient(var(--color-text), var(--color-text));
+  background-size: 0% 1px;
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  transition: color var(--transition-fast), background-size 300ms var(--ease-out-expo);
 }
 
 a:hover {
   color: var(--color-accent);
+  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-size: 100% 1px;
 }
 
 img {

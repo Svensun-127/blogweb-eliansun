@@ -5,7 +5,7 @@
 /* ---------- App container: offset by sidebar width ---------- */
 #app {
   min-height: 100vh;
-  padding-left: calc(100vw / 3.414);
+  padding-left: calc(100vw / 3);
 }
 
 /* ---------- Right scrollable main area ---------- */
@@ -29,7 +29,7 @@
 
 /* ---------- Left Sidebar (fixed) ---------- */
 #sidebar {
-  width: calc(100vw / 3.414);
+  width: calc(100vw / 3);
   height: 100vh;
   position: fixed;
   left: 0;
@@ -105,11 +105,12 @@
   gap: 0.667rem;              /* 2/3 of original var(--space-sm) = 1rem */
   font-size: 1rem;            /* UNCHANGED — user requirement: text stays at original size */
   color: var(--color-muted);
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), transform 250ms var(--ease-out-expo);
 }
 
 #about-info .about-item:hover {
   color: var(--color-text);
+  transform: translateX(4px);
 }
 
 #about-info .about-item .icon-line {
@@ -136,13 +137,17 @@
   min-height: 320px;
   overflow: hidden;
   flex-shrink: 0;            /* 【滚动限制】禁止hero被flex容器压缩，保持45vh高度 */
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(11, 26, 48, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(11, 26, 48, 0.04) 0%, transparent 60%),
+    var(--color-bg);
 }
 
-#hero-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 60% center;
+[data-theme="dark"] #hero-banner {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(247, 245, 227, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(247, 245, 227, 0.04) 0%, transparent 60%),
+    var(--color-bg);
 }
 
 #hero-overlay {
@@ -185,9 +190,21 @@
   align-items: center;
   justify-content: flex-start;
   padding: var(--space-xl);
+  animation: pageFadeIn 400ms var(--ease-out-expo) both;
 }
 .page.visible {
   display: flex;             /* 【路由分离】仅当前激活页恢复为 flex 布局可见 */
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Bottom Navigation — sticky top bar */
@@ -196,7 +213,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: var(--space-xl);
+  gap: var(--space-lg);       /* 由 --space-xl(4rem) 收紧至 2.5rem */
   padding-left: clamp(2rem, 6vw, 5rem);
   height: var(--nav-height);
   border-top: 1px solid var(--color-border);

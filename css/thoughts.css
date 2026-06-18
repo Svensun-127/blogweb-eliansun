@@ -65,6 +65,18 @@
   width: 100%;
   max-width: 620px;
   padding: var(--space-md) 0;
+  animation: thoughtDetailIn 350ms var(--ease-out-expo) both;
+}
+
+@keyframes thoughtDetailIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .thought-back-btn {
