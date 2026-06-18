@@ -1,5 +1,5 @@
 /* ========================================
-   podcast.css — 播客列表 + 播放器样式
+   podcast.css — 播客列表 + 详情页 + 自定义播放器样式
    ======================================== */
 
 /* ---------- Loading / Error ---------- */
@@ -33,7 +33,11 @@
   line-height: 1.6;
 }
 
-/* ---------- Episode List ---------- */
+/* ---------- 列表视图 ---------- */
+.podcast-list-view {
+  /* 默认可见，切换时由 JS 控制 */
+}
+
 .podcast-list {
   display: flex;
   flex-direction: column;
@@ -61,14 +65,7 @@
   opacity: 0.75;
 }
 
-.podcast-entry.selected {
-  background-color: var(--color-border);
-  margin: 0 calc(-1 * var(--space-md));
-  padding-left: var(--space-md);
-  padding-right: var(--space-md);
-}
-
-/* ---------- Cover ---------- */
+/* ---------- Cover (列表) ---------- */
 .podcast-cover {
   width: 96px;
   height: 96px;
@@ -138,59 +135,236 @@
   color: var(--color-border);
 }
 
-/* ---------- Player ---------- */
-.podcast-player {
+/* ========================================
+   详情视图
+   ======================================== */
+.podcast-detail-view {
   display: none;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   max-width: 680px;
+  animation: podcastDetailIn 0.35s ease both;
+}
+
+@keyframes podcastDetailIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- 返回按钮 ---------- */
+.podcast-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: none;
+  border: none;
+  color: var(--color-muted);
+  font-size: var(--text-caption);
+  font-family: var(--font-body);
+  cursor: pointer;
+  padding: 0 0 var(--space-md) 0;
+  align-self: flex-start;
+  transition: color var(--transition-fast);
+}
+
+.podcast-back-btn:hover {
+  color: var(--color-text);
+}
+
+/* ---------- 详情文章 ---------- */
+.podcast-detail-article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.podcast-detail-cover {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--color-border);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.podcast-detail-cover-placeholder {
+  width: 200px;
+  height: 200px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-border);
+  border-radius: 8px;
+  color: var(--color-muted);
+}
+
+.podcast-detail-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.35;
+}
+
+.podcast-detail-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-caption);
+  color: var(--color-muted);
+}
+
+.podcast-detail-duration + .podcast-detail-date::before {
+  content: '·';
+  margin-right: var(--space-sm);
+  color: var(--color-border);
+}
+
+.podcast-detail-desc {
+  font-size: var(--text-body);
+  color: var(--color-text);
+  line-height: 1.8;
+  text-align: left;
+  white-space: pre-line;
+  width: 100%;
+}
+
+.podcast-detail-link {
+  font-size: var(--text-caption);
+  color: var(--color-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+.podcast-detail-link:hover {
+  color: var(--color-text);
+}
+
+/* ========================================
+   自定义音频播放器
+   ======================================== */
+.podcast-custom-player {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
   margin-top: var(--space-lg);
   padding: var(--space-md);
   border: 1px solid var(--color-border);
-  border-radius: 6px;
+  border-radius: 8px;
   background: var(--color-surface);
   transition: background-color var(--transition-slow), border-color var(--transition-slow);
 }
 
-.podcast-player-header {
+/* ---------- 播放按钮 ---------- */
+.podcast-play-btn {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: var(--space-sm);
-  gap: var(--space-sm);
-}
-
-.podcast-player-title {
-  font-family: var(--font-display);
-  font-size: var(--text-body);
-  font-weight: 600;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border: 1.5px solid var(--color-text);
+  border-radius: 50%;
+  background: none;
   color: var(--color-text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 
-.podcast-player-link {
+.podcast-play-btn:hover {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+/* ---------- 进度条容器 ---------- */
+.podcast-progress-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  min-width: 0;
+}
+
+.podcast-progress-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--color-border);
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+  transition: height var(--transition-fast);
+}
+
+.podcast-progress-bar:hover {
+  height: 8px;
+}
+
+.podcast-progress-buffered {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--color-border);
+  border-radius: 3px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.podcast-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--color-text);
+  border-radius: 3px;
+  pointer-events: none;
+  transition: width 0.1s linear;
+}
+
+.podcast-progress-thumb {
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  width: 12px;
+  height: 12px;
+  background: var(--color-text);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.podcast-progress-bar:hover .podcast-progress-thumb {
+  opacity: 1;
+}
+
+/* ---------- 时间显示 ---------- */
+.podcast-time-display {
   font-size: var(--text-small);
   color: var(--color-muted);
-  text-decoration: none;
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
-  transition: color var(--transition-fast);
+  min-width: 96px;
+  text-align: right;
 }
 
-.podcast-player-link:hover {
-  color: var(--color-text);
-}
-
+/* ---------- 隐藏原生 audio ---------- */
 .podcast-audio {
-  width: 100%;
-  height: 36px;
-  border-radius: 4px;
-  outline: none;
-}
-
-/* 暗色模式 audio 控件 */
-[data-theme="dark"] .podcast-audio::-webkit-media-controls-panel {
-  background-color: var(--color-surface);
+  display: none;
 }
 
 /* ---------- Responsive ---------- */
@@ -210,9 +384,23 @@
     font-size: 1rem;
   }
 
-  .podcast-entry.selected {
-    margin: 0 calc(-1 * var(--space-sm));
-    padding-left: var(--space-sm);
-    padding-right: var(--space-sm);
+  .podcast-detail-cover,
+  .podcast-detail-cover-placeholder {
+    width: 160px;
+    height: 160px;
+  }
+
+  .podcast-detail-title {
+    font-size: 1.25rem;
+  }
+
+  .podcast-custom-player {
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+  }
+
+  .podcast-time-display {
+    min-width: 80px;
+    font-size: 0.75rem;
   }
 }

@@ -150,15 +150,44 @@
           <div class="podcast-error" style="display:none">
             <p data-i18n="podcast-error">Failed to load episodes. Please try again later.</p>
           </div>
-          <!-- 节目列表（JS 动态渲染） -->
-          <div class="podcast-list"></div>
-          <!-- 音频播放器 -->
-          <div class="podcast-player">
-            <div class="podcast-player-header">
-              <span class="podcast-player-title"></span>
-              <a class="podcast-player-link" href="#" target="_blank" rel="noopener" data-i18n="podcast-listen-xiaoyuzhou">Listen on 小宇宙</a>
+
+          <!-- ====== 列表视图 ====== -->
+          <div class="podcast-list-view">
+            <div class="podcast-list"><!-- JS 动态渲染 --></div>
+          </div>
+
+          <!-- ====== 详情视图 ====== -->
+          <div class="podcast-detail-view" style="display:none">
+            <button class="podcast-back-btn" data-i18n="podcast-back">← 返回列表</button>
+            <article class="podcast-detail-article">
+              <img class="podcast-detail-cover" src="" alt="" style="display:none">
+              <div class="podcast-detail-cover-placeholder" style="display:none">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+              <h3 class="podcast-detail-title"></h3>
+              <div class="podcast-detail-meta">
+                <span class="podcast-detail-date"></span>
+                <span class="podcast-detail-duration"></span>
+              </div>
+              <p class="podcast-detail-desc"></p>
+              <a class="podcast-detail-link" href="#" target="_blank" rel="noopener" data-i18n="podcast-listen-xiaoyuzhou">Listen on 小宇宙</a>
+            </article>
+            <!-- 自定义音频播放器 -->
+            <div class="podcast-custom-player">
+              <button class="podcast-play-btn" aria-label="Play/Pause">
+                <svg class="podcast-icon-play" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <svg class="podcast-icon-pause" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="5" y="3" width="5" height="18"/><rect x="14" y="3" width="5" height="18"/></svg>
+              </button>
+              <div class="podcast-progress-container">
+                <div class="podcast-progress-bar" role="slider" aria-label="播放进度" tabindex="0">
+                  <div class="podcast-progress-buffered"></div>
+                  <div class="podcast-progress-fill"></div>
+                  <div class="podcast-progress-thumb"></div>
+                </div>
+                <span class="podcast-time-display">00:00 / 00:00</span>
+              </div>
             </div>
-            <audio class="podcast-audio" controls preload="none"></audio>
+            <audio class="podcast-audio" preload="none"></audio>
           </div>
         </section>
       </div>

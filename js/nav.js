@@ -13,9 +13,12 @@
     buttons.forEach(function (b) {
       b.classList.toggle('active', b.dataset.page === name);
     });
-    /* 切换到其他页面时，关闭文章详情 */
+    /* 切换到其他页面时，关闭文章/播客详情 */
     if (name !== 'thoughts') {
       closeThoughtDetail();
+    }
+    if (name !== 'podcast' && window.closePodcastDetail) {
+      window.closePodcastDetail();
     }
     /* 首次切换到播客页面时触发数据加载 */
     if (name === 'podcast' && window.initPodcast) {
