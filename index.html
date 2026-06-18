@@ -141,18 +141,24 @@
           </div>
         </section>
         <section id="page-podcast" class="page" data-page="podcast">
-          <div class="podcast-placeholder">
-            <div class="placeholder-card">
-              <div class="placeholder-cover">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="5 3 19 12 5 21 5 3"/>
-                </svg>
-              </div>
-              <div class="placeholder-body">
-                <h3 data-i18n="podcast-coming">Coming Soon</h3>
-                <p data-i18n="podcast-teaser">The mic is warming up. Stories, ideas, and conversations are on their way.</p>
-              </div>
+          <!-- Loading 状态 -->
+          <div class="podcast-loading">
+            <div class="podcast-loading-spinner"></div>
+            <span data-i18n="podcast-loading">Loading episodes…</span>
+          </div>
+          <!-- 加载失败 -->
+          <div class="podcast-error" style="display:none">
+            <p data-i18n="podcast-error">Failed to load episodes. Please try again later.</p>
+          </div>
+          <!-- 节目列表（JS 动态渲染） -->
+          <div class="podcast-list"></div>
+          <!-- 音频播放器 -->
+          <div class="podcast-player">
+            <div class="podcast-player-header">
+              <span class="podcast-player-title"></span>
+              <a class="podcast-player-link" href="#" target="_blank" rel="noopener" data-i18n="podcast-listen-xiaoyuzhou">Listen on 小宇宙</a>
             </div>
+            <audio class="podcast-audio" controls preload="none"></audio>
           </div>
         </section>
       </div>
@@ -162,6 +168,7 @@
   <script src="js/nav.js"></script>
   <script src="js/theme.js"></script>
   <script src="js/i18n.js"></script>
+  <script src="js/podcast.js"></script>
   <script src="js/hero.js"></script>
 </body>
 </html>

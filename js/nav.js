@@ -17,6 +17,10 @@
     if (name !== 'thoughts') {
       closeThoughtDetail();
     }
+    /* 首次切换到播客页面时触发数据加载 */
+    if (name === 'podcast' && window.initPodcast) {
+      window.initPodcast();
+    }
   }
 
   /* 默认展示 About Me */
