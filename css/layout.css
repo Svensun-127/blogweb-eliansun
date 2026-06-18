@@ -5,7 +5,7 @@
 /* ---------- App container: offset by sidebar width ---------- */
 #app {
   min-height: 100vh;
-  padding-left: calc(100vw / 3);
+  padding-left: var(--sidebar-width);
 }
 
 /* ---------- Right scrollable main area ---------- */
@@ -29,7 +29,7 @@
 
 /* ---------- Left Sidebar (fixed) ---------- */
 #sidebar {
-  width: calc(100vw / 3);
+  width: var(--sidebar-width);
   height: 100vh;
   position: fixed;
   left: 0;
@@ -137,17 +137,34 @@
   min-height: 320px;
   overflow: hidden;
   flex-shrink: 0;            /* 【滚动限制】禁止hero被flex容器压缩，保持45vh高度 */
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(11, 26, 48, 0.03) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 50%, rgba(11, 26, 48, 0.04) 0%, transparent 60%),
-    var(--color-bg);
+  background: var(--color-bg);
 }
 
-[data-theme="dark"] #hero-banner {
+/* Gradient drift pseudo-element — slow animated radial gradients */
+#hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: -5%;
+  z-index: 0;
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(247, 245, 227, 0.03) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 50%, rgba(247, 245, 227, 0.04) 0%, transparent 60%),
-    var(--color-bg);
+    radial-gradient(ellipse at 20% 50%, rgba(11, 26, 48, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(11, 26, 48, 0.04) 0%, transparent 60%);
+  animation: heroGradientDrift 24s ease-in-out infinite;
+  pointer-events: none;
+}
+
+[data-theme="dark"] #hero-banner::before {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(247, 245, 227, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(247, 245, 227, 0.08) 0%, transparent 60%);
+}
+
+@keyframes heroGradientDrift {
+  0%   { transform: translate(0, 0) scale(1); }
+  25%  { transform: translate(0.8%, -0.4%) scale(1.03); }
+  50%  { transform: translate(0, -1%) scale(1); }
+  75%  { transform: translate(-0.6%, -0.3%) scale(1.02); }
+  100% { transform: translate(0, 0) scale(1); }
 }
 
 #hero-overlay {
@@ -234,7 +251,7 @@
   font-weight: 600;
   color: var(--color-muted);
   letter-spacing: 0.02em;
-  transition: color var(--transition-fast), letter-spacing var(--transition-fast);
+  transition: color var(--transition-fast), letter-spacing var(--transition-fast), transform 150ms var(--ease-out-expo);
   padding: var(--space-xs) var(--space-sm);
 }
 
@@ -242,6 +259,10 @@
 #bottom-nav button.active {
   color: var(--color-text);
   letter-spacing: 0.06em;
+}
+
+#bottom-nav button:active {
+  transform: scale(0.96);
 }
 
 /* ---------- Controls (top-right fixed) ---------- */
@@ -266,11 +287,15 @@
   font-family: var(--font-display);
   font-size: 0.95rem;
   font-weight: 600;
-  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform 150ms var(--ease-out-expo);
 }
 
 #controls button:hover {
   filter: brightness(0.92);
+}
+
+#controls button:active {
+  transform: scale(0.94);
 }
 
 #lang-toggle {

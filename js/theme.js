@@ -6,14 +6,25 @@
 
   if (!toggle) return;
 
-  /* Restore saved theme */
+  /* Resolve theme: saved preference > system preference > light */
   var saved = localStorage.getItem('elian-theme');
   if (saved) {
     html.dataset.theme = saved;
     updateIcons(saved);
   } else {
-    updateIcons('light');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var systemTheme = prefersDark ? 'dark' : 'light';
+    html.dataset.theme = systemTheme;
+    updateIcons(systemTheme);
   }
+
+  /* Listen to system theme changes when no explicit user override is set */
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+    if (localStorage.getItem('elian-theme')) return; /* user explicitly picked — do not override */
+    var next = e.matches ? 'dark' : 'light';
+    html.dataset.theme = next;
+    updateIcons(next);
+  });
 
   toggle.addEventListener('click', function () {
     var current = html.dataset.theme;
