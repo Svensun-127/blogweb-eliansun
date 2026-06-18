@@ -1,4 +1,4 @@
-/**
+﻿/**
  * podcast.js — 播客列表渲染 + 列表↔详情导航 + 自定义音频播放器
  * 从 assets/data/podcast.json 加载数据，动态渲染节目列表
  */
@@ -22,7 +22,13 @@
   var detailDate     = podcastPage.querySelector('.podcast-detail-date');
   var detailDuration = podcastPage.querySelector('.podcast-detail-duration');
   var detailDesc     = podcastPage.querySelector('.podcast-detail-desc');
-  var detailLink     = podcastPage.querySelector('.podcast-detail-link');
+  var detailLink     = podcastPage.querySelector('.podcast-listen-xiaoyuzhou');
+
+  /* 字幕 DOM */
+  var transcriptToggle  = podcastPage.querySelector('.podcast-transcript-toggle');
+  var transcriptContainer = podcastPage.querySelector('.podcast-transcript');
+  var transcriptLoading = podcastPage.querySelector('.podcast-transcript-loading');
+  var transcriptContent = podcastPage.querySelector('.podcast-transcript-content');
 
   /* 自定义播放器 DOM */
   var playBtn       = podcastPage.querySelector('.podcast-play-btn');
@@ -36,6 +42,10 @@
   var currentGuid = null;
   var loaded = false;
   var playerReady = false;
+
+  /* 字幕状态 */
+  var transcriptVisible = false;
+  var transcriptLoaded = {};  /* guid → { en: "text", zh: "text|null" } */
 
   /**
    * 首次切换到 Podcast tab 时触发加载
@@ -160,7 +170,143 @@
       playerReady = true;
     }
 
+    /* 字幕：根据 hasTranscript 控制入口按钮 */
+    if (transcriptToggle) {
+      transcriptToggle.style.display = ep.hasTranscript ? '' : 'none';
+    }
+    closeTranscript();
+
     currentGuid = guid;
+  }
+
+  function closeTranscript() {
+    transcriptVisible = false;
+    if (transcriptContainer) transcriptContainer.style.display = 'none';
+    if (transcriptContent) transcriptContent.innerHTML = '';
+    updateTranscriptToggleText();
+  }
+
+  function updateTranscriptToggleText() {
+    if (!transcriptToggle) return;
+    var lang = (localStorage.getItem('elian-lang') || 'en') === 'zh' ? 'zh' : 'en';
+    var key = transcriptVisible ? 'podcast-transcript-hide' : 'podcast-transcript-show';
+    var i18n = {
+      en: { 'podcast-transcript-show': 'Show Transcript', 'podcast-transcript-hide': 'Hide Transcript' },
+      zh: { 'podcast-transcript-show': '显示字幕', 'podcast-transcript-hide': '隐藏字幕' }
+    };
+    transcriptToggle.textContent = i18n[lang][key];
+  }
+
+  /* ========== 字幕：SRT 解析 + 渲染 ========== */
+
+  function parseSRT(text) {
+    var segments = [];
+    var lines = text.split(/\r?\n/);
+    var buf = [];
+    var inText = false;
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i].trim();
+      if (/^\d+$/.test(line)) continue;
+      if (/-->/.test(line)) { inText = true; continue; }
+      if (line === '') {
+        if (buf.length) { segments.push(buf.join(' ')); buf = []; }
+        inText = false;
+        continue;
+      }
+      if (inText) buf.push(line);
+    }
+    if (buf.length) segments.push(buf.join(' '));
+    return segments;
+  }
+
+  function renderTranscript() {
+    if (!transcriptContent || !transcriptVisible) return;
+    var data = transcriptLoaded[currentGuid];
+    if (!data) return;
+
+    var lang = (localStorage.getItem('elian-lang') || 'en') === 'zh' ? 'zh' : 'en';
+    var enSegments = parseSRT(data.en);
+    var html = '';
+
+    /* 英文段落 */
+    for (var i = 0; i < enSegments.length; i++) {
+      html += '<p>' + escapeHtml(enSegments[i]) + '</p>';
+    }
+
+    /* 中文模式：追加中文翻译 */
+    if (lang === 'zh' && data.zh) {
+      var zhSegments = parseSRT(data.zh);
+      html += '<div class="podcast-transcript-zh">';
+      for (var j = 0; j < zhSegments.length; j++) {
+        html += '<p>' + escapeHtml(zhSegments[j]) + '</p>';
+      }
+      html += '</div>';
+    }
+
+    transcriptContent.innerHTML = html;
+  }
+
+  function loadTranscript(guid, ep) {
+    if (transcriptLoaded[guid]) {
+      /* 已缓存，直接渲染 */
+      transcriptVisible = true;
+      if (transcriptContainer) transcriptContainer.style.display = 'block';
+      updateTranscriptToggleText();
+      renderTranscript();
+      return;
+    }
+
+    /* 显示 loading */
+    if (transcriptLoading) transcriptLoading.style.display = 'flex';
+    if (transcriptContainer) transcriptContainer.style.display = 'block';
+    transcriptVisible = true;
+    updateTranscriptToggleText();
+
+    /* fetch English transcript */
+    var enPromise = fetch('assets/transcripts/' + guid + '-en.txt')
+      .then(function (res) {
+        if (!res.ok) throw new Error('no en transcript');
+        return res.text();
+      });
+
+    /* fetch Chinese transcript (may fail) */
+    var zhPromise = ep.hasChineseTranscript
+      ? fetch('assets/transcripts/' + guid + '-zh.txt').then(function (res) {
+          if (!res.ok) throw new Error('no zh transcript');
+          return res.text();
+        })
+      : Promise.resolve(null);
+
+    Promise.all([enPromise, zhPromise])
+      .then(function (results) {
+        var enText = results[0];
+        var zhText = results[1];
+        transcriptLoaded[guid] = { en: enText, zh: zhText };
+        if (transcriptLoading) transcriptLoading.style.display = 'none';
+        renderTranscript();
+      })
+      .catch(function () {
+        if (transcriptLoading) transcriptLoading.style.display = 'none';
+        if (transcriptContent) transcriptContent.innerHTML =
+          '<p style="color:var(--color-muted)">' +
+          ((localStorage.getItem('elian-lang') || 'en') === 'zh' ? '加载字幕失败，请稍后重试。' : 'Failed to load transcript. Please try again later.') +
+          '</p>';
+      });
+  }
+
+  /* 字幕 toggle 点击 */
+  if (transcriptToggle) {
+    transcriptToggle.addEventListener('click', function () {
+      if (!currentGuid) return;
+      var ep = findEpisode(currentGuid);
+      if (!ep || !ep.hasTranscript) return;
+
+      if (transcriptVisible) {
+        closeTranscript();
+      } else {
+        loadTranscript(currentGuid, ep);
+      }
+    });
   }
 
   function closeDetail() {
@@ -170,6 +316,7 @@
       audioEl.pause();
     }
     updatePlayIcon(false);
+    closeTranscript();
     currentGuid = null;
   }
 
@@ -310,4 +457,12 @@
   /* 暴露给外部 */
   window.initPodcast = init;
   window.closePodcastDetail = closeDetail;
+
+  /* 语言切换时重渲染字幕 + 更新按钮文字 */
+  window.updateTranscriptLang = function () {
+    if (transcriptVisible && currentGuid && transcriptLoaded[currentGuid]) {
+      updateTranscriptToggleText();
+      renderTranscript();
+    }
+  };
 })();

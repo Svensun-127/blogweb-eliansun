@@ -170,8 +170,31 @@
                 <span class="podcast-detail-duration"></span>
               </div>
               <p class="podcast-detail-desc"></p>
-              <a class="podcast-detail-link" href="#" target="_blank" rel="noopener" data-i18n="podcast-listen-xiaoyuzhou">Listen on 小宇宙</a>
+              <div class="podcast-listen-section">
+                <div class="podcast-listen-item">
+                  <a class="podcast-listen-link podcast-listen-xiaoyuzhou" href="#" target="_blank" rel="noopener">
+                    <img class="podcast-listen-icon" src="assets/images/listen-xiaoyuzhou.png" alt="小宇宙">
+                    <span data-i18n="podcast-listen-xiaoyuzhou">Listen on 小宇宙</span>
+                  </a>
+                </div>
+                <div class="podcast-listen-item">
+                  <a class="podcast-listen-link podcast-listen-apple" href="https://podcasts.apple.com/cn/podcast/speak-out-show-%E8%AF%B4%E5%8F%A3%E7%A7%80/id1895544028" target="_blank" rel="noopener">
+                    <img class="podcast-listen-icon podcast-listen-icon-light" src="assets/images/listen-apple-light.png" alt="Apple Podcasts">
+                    <img class="podcast-listen-icon podcast-listen-icon-dark" src="assets/images/listen-apple-dark.png" alt="Apple Podcasts">
+                    <span data-i18n="podcast-listen-apple">Listen on Apple Podcasts</span>
+                  </a>
+                </div>
+              </div>
             </article>
+            <!-- 字幕入口 -->
+            <button class="podcast-transcript-toggle" data-i18n="podcast-transcript-show">Show Transcript</button>
+            <div class="podcast-transcript" style="display:none">
+              <div class="podcast-transcript-loading" style="display:none">
+                <div class="podcast-loading-spinner"></div>
+                <span data-i18n="podcast-transcript-loading">Loading transcript...</span>
+              </div>
+              <div class="podcast-transcript-content"></div>
+            </div>
             <!-- 自定义音频播放器 -->
             <div class="podcast-custom-player">
               <button class="podcast-play-btn" aria-label="Play/Pause">

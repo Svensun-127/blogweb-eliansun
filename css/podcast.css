@@ -239,16 +239,125 @@
   width: 100%;
 }
 
-.podcast-detail-link {
-  font-size: var(--text-caption);
+/* ---------- External Listen Links ---------- */
+.podcast-listen-section {
+  display: flex;
+  gap: var(--space-lg);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.podcast-listen-item {
+  display: flex;
+}
+
+.podcast-listen-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
   color: var(--color-muted);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  font-size: var(--text-caption);
+  text-decoration: none;
   transition: color var(--transition-fast);
 }
 
-.podcast-detail-link:hover {
+.podcast-listen-link:hover {
   color: var(--color-text);
+}
+
+.podcast-listen-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Apple Podcasts: light/dark icon swap via theme attribute */
+.podcast-listen-icon-dark {
+  display: none;
+}
+[data-theme="dark"] .podcast-listen-icon-light {
+  display: none;
+}
+[data-theme="dark"] .podcast-listen-icon-dark {
+  display: inline;
+}
+
+/* ========================================
+   字幕 Transcript
+   ======================================== */
+
+/* ---------- 入口按钮 ---------- */
+.podcast-transcript-toggle {
+  display: block;
+  margin: var(--space-md) auto 0;
+  padding: var(--space-xs) var(--space-md);
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  color: var(--color-muted);
+  font-size: var(--text-caption);
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.podcast-transcript-toggle:hover {
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+
+/* ---------- 字幕容器 ---------- */
+.podcast-transcript {
+  width: 100%;
+  margin-top: var(--space-lg);
+  animation: transcriptFadeIn 0.3s ease both;
+}
+
+@keyframes transcriptFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Loading ---------- */
+.podcast-transcript-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg) 0;
+  color: var(--color-muted);
+  font-size: var(--text-caption);
+}
+
+/* ---------- 字幕内容 ---------- */
+.podcast-transcript-content {
+  font-size: var(--text-body);
+  color: var(--color-text);
+  line-height: 1.9;
+  text-align: left;
+}
+
+.podcast-transcript-content p {
+  margin-bottom: 0.75em;
+}
+
+/* 中文翻译区域 */
+.podcast-transcript-zh {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px dashed var(--color-border);
+}
+
+.podcast-transcript-zh p {
+  color: var(--color-muted);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .podcast-transcript-content {
+    font-size: var(--text-caption);
+    line-height: 1.75;
+  }
 }
 
 /* ========================================

@@ -16,6 +16,7 @@
       "podcast-loading": "Loading episodes…",
       "podcast-error": "Failed to load episodes. Please try again later.",
       "podcast-listen-xiaoyuzhou": "Listen on 小宇宙",
+      "podcast-listen-apple": "Listen on Apple Podcasts",
       "podcast-duration-min": "min",
       "podcast-duration-hr": "hr",
       "podcast-back": "← Back to list",
@@ -34,7 +35,11 @@
       "tag-sneakers": "Sneakers👟",
       "tag-spurs": "Spurs Fan🏀👽",
       "tag-dogs": "Dogs🐾",
-      "tag-buddhism": "Buddhism🪷"
+      "tag-buddhism": "Buddhism🪷",
+      "podcast-transcript-show": "Show Transcript",
+      "podcast-transcript-hide": "Hide Transcript",
+      "podcast-transcript-loading": "Loading transcript...",
+      "podcast-transcript-none": "No transcript available"
     },
     zh: {
       intro: "你好，我是Elian",
@@ -48,6 +53,7 @@
       "podcast-loading": "加载中…",
       "podcast-error": "加载失败，请稍后重试。",
       "podcast-listen-xiaoyuzhou": "在小宇宙收听",
+      "podcast-listen-apple": "在 Apple Podcasts 收听",
       "podcast-duration-min": "分钟",
       "podcast-duration-hr": "小时",
       "podcast-back": "← 返回列表",
@@ -66,7 +72,11 @@
       "tag-sneakers": "球鞋👟",
       "tag-spurs": "马刺球迷🏀👽",
       "tag-dogs": "狗狗🐾",
-      "tag-buddhism": "佛学🪷"
+      "tag-buddhism": "佛学🪷",
+      "podcast-transcript-show": "显示字幕",
+      "podcast-transcript-hide": "隐藏字幕",
+      "podcast-transcript-loading": "加载字幕中…",
+      "podcast-transcript-none": "暂无字幕"
     }
   };
 
@@ -92,5 +102,10 @@
         el.textContent = dict[lang][key];
       }
     });
+
+    /* 通知 podcast.js 重渲染字幕（语言切换联动） */
+    if (window.updateTranscriptLang) {
+      window.updateTranscriptLang();
+    }
   }
 })();
