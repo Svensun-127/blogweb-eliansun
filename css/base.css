@@ -11,6 +11,7 @@
   /* Light theme (default) — #0b1a30 + #F7F5E3 only */
   --color-text: #0b1a30;
   --color-bg: #F7F5E3;
+  --color-surface: #ffffff;
   --color-accent: #0b1a30;
   --color-muted: rgba(8, 14, 69, 0.50);
   --color-border: rgba(8, 14, 69, 0.12);
@@ -57,8 +58,9 @@
 [data-theme="dark"] {
   --color-text: #F7F5E3;
   --color-bg: #0c1929;
+  --color-surface: #101d30;
   --color-accent: #F7F5E3;
-  --color-muted: rgba(247, 245, 227, 0.50);
+  --color-muted: rgba(247, 245, 227, 0.65);
   --color-border: rgba(247, 245, 227, 0.15);
   --color-hero-overlay: #0c1929;
 
@@ -87,7 +89,8 @@ body {
   font-family: var(--font-body);
   color: var(--color-text);
   background-color: var(--color-bg);
-  line-height: 1.6;
+  line-height: 1.75;
+  font-feature-settings: "liga", "kern";
   overflow-x: hidden;
   transition: background-color var(--transition-slow), color var(--transition-slow);
   min-height: 100vh;
@@ -117,6 +120,7 @@ h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.2;
+  letter-spacing: 0.04em;
 }
 
 /* ---------- Selection ---------- */
