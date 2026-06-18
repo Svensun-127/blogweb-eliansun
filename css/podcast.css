@@ -8,5 +8,5 @@
 
 #page-podcast .page-placeholder p {
   font-size: var(--text-caption);
-  color: #555;               /* 【文字颜色】占位文字改为深灰色 */
+  color: var(--color-muted);
 }
