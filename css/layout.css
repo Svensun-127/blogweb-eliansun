@@ -1,4 +1,4 @@
-/* ========================================
+﻿/* ========================================
    layout.css — Left Sidebar + Right Main Area Grid
    ======================================== */
 
@@ -13,7 +13,7 @@
 /* 【水平居中】左右等量内边距将整块内容居中在右侧容器内 */
 #main-area {
   display: flex;
-  flex-direction: column;
+  flex-direction: column !important;
   height: 100vh;
   max-height: 100vh;          /* 【滚动边界】硬性限制最大高度，内容再多也不超出视口 */
   overflow-y: auto;           /* 【滚动行为】允许容器内垂直滚动 */
@@ -38,7 +38,7 @@
   transition: background-color var(--transition-slow);
   overflow: hidden;
   display: flex;
-  flex-direction: column;
+  flex-direction: column !important;
   align-items: center;
   padding: 1.667rem;          /* 2/3 of original var(--space-lg) = 2.5rem */
   border-right: 1px solid var(--color-border);
@@ -93,9 +93,9 @@
 /* About-info block — container and internal gaps scaled to 2/3, font-size unchanged */
 #about-info {
   display: flex;
-  flex-direction: column;
-  gap: 0.667rem;              /* 2/3 of original var(--space-sm) = 1rem */
-  align-items: flex-start;
+  flex-direction: column !important;
+  gap: 1.4rem;
+    align-items: flex-start;
   width: 66.67%;
 }
 
@@ -108,7 +108,7 @@
   transition: color var(--transition-fast), transform 250ms var(--ease-out-expo);
 }
 
-#about-info .about-item:hover {
+#about-info .about-item:not(.about-item-social):hover {
   color: var(--color-text);
   transform: translateX(4px);
 }
@@ -173,10 +173,17 @@
   background: var(--color-hero-overlay);
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding-left: clamp(2rem, 6vw, 5rem);
+  justify-content: center;
 }
 
+/* ---------- Hero Text Wrapper ---------- */
+#hero-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ====== Entrance Animation: fade-in from left (0.8s ease-out) ====== */
 #hero-text {
   font-family: var(--font-display);
   font-size: var(--text-hero);
@@ -184,15 +191,34 @@
   color: var(--color-text);
   letter-spacing: -0.03em;
   opacity: 0;
-  transform: translateX(-30px);
+  transform: translateX(-20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 #hero-text.revealed {
   opacity: 1;
   transform: translateX(0);
-  transition: opacity 1.2s var(--ease-out-expo), transform 1.2s var(--ease-out-expo);
 }
 
+#hero-subtitle {
+  font-family: var(--font-cjk);
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 600;
+  color: var(--color-muted);
+  letter-spacing: 0.06em;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.8s ease-out 0.15s, transform 0.8s ease-out 0.15s;
+}
+
+#hero-text.revealed ~ #hero-subtitle {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ====== Blinking Underscore: 0.7s cycle, smooth fade ====== */
+
+/* ====== Per-character staggered entrance ====== */
 /* Content Area — between hero and nav */
 #content-area {
   display: block;
@@ -203,9 +229,9 @@
 /* 【路由分离】display:none 隐藏非激活页，移除 DOM 流，互不干扰 */
 .page {
   display: none;             /* 【路由分离】默认隐藏所有页面 */
-  flex-direction: column;
+  flex-direction: column !important;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   padding: var(--space-xl);
   animation: pageFadeIn 400ms var(--ease-out-expo) both;
 }
@@ -228,10 +254,9 @@
 /* 【导航固定】sticky定位吸附在滚动容器顶部，始终可见，不受滚动影响 */
 #bottom-nav {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   gap: var(--space-lg);       /* 由 --space-xl(4rem) 收紧至 2.5rem */
-  padding-left: clamp(2rem, 6vw, 5rem);
   height: var(--nav-height);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
@@ -316,4 +341,42 @@
   stroke: currentColor;
   fill: none;
   stroke-width: 1.5;
+}
+/* Social icon row (GitHub + X) */
+#about-info .about-item-social {
+  display: flex;
+  flex-direction: column !important;
+  align-items: flex-start;
+  gap: 1.2rem;
+
+  /* Disable parent hover shift - each icon moves independently */
+  #about-info .about-item-social:hover {
+    transform: none !important;
+  }
+}
+
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  transition: color var(--transition-fast), transform 250ms var(--ease-out-expo);
+  background-image: none !important;
+  background-size: unset !important;
+}
+
+.social-icon-link:hover {
+  color: var(--color-text);
+  transform: scale(1.15);
+  background-size: unset !important;
+}
+
+/* Larger sidebar icons */
+#about-info .about-item .icon-line {
+  width: 24px;
+  height: 24px;
+}
+.social-icon {
+  width: 24px;
+  height: 24px;
 }

@@ -87,9 +87,9 @@
 ### 4.2 各语言规范
 | 语言 | 核心规范                                                                 |
 |------|--------------------------------------------------------------------------|
-| HTML | 语义化标签（header/section/article 等）；无障碍属性；结构清晰、缩进统一   |
+| HTML | 语义化标签（header/section/article 等）；结构清晰、缩进统一   |
 | CSS  | BEM 命名法（.block__element--modifier）；CSS 变量集中管理；文件头注明用途 |
-| JS   | ES6+ 模块化；事件委托优先；避免全局变量污染；关键逻辑加中文注释           |
+| JS   | IIFE 模块化；事件委托优先；避免全局变量污染；关键逻辑加中文注释           |
 
 ### 4.3 提交规范
 提交信息格式：`type(scope): description`
@@ -103,14 +103,7 @@
 - 详情视图：点击条目后展开，替代列表视图，展示完整文章内容。
 
 ### 5.2 列表视图（.thoughts-list-view）
-#### HTML 结构
-```html
-<article class="thought-entry" data-thought-id="N">
-  <h3 class="thought-title">文章标题</h3>
-  <p class="thought-excerpt">正文首句内容，超出单行自动截断...</p>
-  <time class="thought-date" datetime="YYYY-MM-DD">YYYY-MM-DD</time>
-</article>
-```
+→ 参考 index.html 中 #page-thoughts 实际结构
 #### 样式规则
 - `.thought-title`：加粗，`--color-text`，`1.3rem`，居中对齐；
 - `.thought-excerpt`：#555，单行截断（`text-overflow: ellipsis`），末尾固定显示 `...`；
@@ -120,20 +113,7 @@
 - 排序规则：按发布时间降序（旧条目在上，新条目在下）。
 
 ### 5.3 详情视图（#thought-detail-view）
-#### HTML 模板
-```html
-<div id="thought-detail-view" style="display:none">
-  <button id="thought-back-btn" class="thought-back-btn">← 返回列表</button>
-  <article class="thought-detail-article">
-    <h3 class="thought-title"></h3>
-    <div class="thought-body">
-      <pre class="thought-poem"></pre>
-      <p class="thought-signature"></p>
-    </div>
-  </article>
-  <p class="thought-end-mark">— END —</p>
-</div>
-```
+→ 参考 index.html 中 #thought-detail-view 实际结构
 #### 样式规则
 - 默认隐藏（`display:none`），激活后改为 `display:flex`；
 - `.thought-detail-article .thought-title`：居中对齐；

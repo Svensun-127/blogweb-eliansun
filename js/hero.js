@@ -1,12 +1,24 @@
+﻿/**
+ * hero.js - Simple entrance animation
+ * Fades in hero text on page load and language switch.
+ */
 (function () {
-  /* Hero text fade-in on page load */
   var heroText = document.getElementById('hero-text');
   if (!heroText) return;
 
-  window.addEventListener('DOMContentLoaded', function () {
-    /* Small delay so the layout is painted first */
-    requestAnimationFrame(function () {
-      heroText.classList.add('revealed');
+  function reveal() {
+    heroText.classList.remove('revealed');
+    void heroText.offsetWidth; /* force reflow to restart transition */
+    heroText.classList.add('revealed');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      requestAnimationFrame(reveal);
     });
-  });
+  } else {
+    requestAnimationFrame(reveal);
+  }
+
+  window.revealHero = reveal;
 })();

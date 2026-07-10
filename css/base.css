@@ -1,7 +1,10 @@
-/* ========================================
+﻿/* ========================================
    base.css — CSS Variables, Reset, Typography
    Elian Personal Site
    ======================================== */
+
+/* ---------- Minecraft Pixel Font ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
 /* ---------- CSS Variables ---------- */
 :root {
@@ -20,8 +23,8 @@
   --color-control-text: #0b1a30;
 
   /* Typography */
-  --font-display: 'Cambria Math', 'SimKai', 'KaiTi', '楷体', serif;
-  --font-body: 'Georgia', 'SimKai', 'KaiTi', '楷体', serif;
+  --font-display: 'Lora', 'SimKai', 'KaiTi', '楷体', serif;
+  --font-body: 'Lora', 'SimKai', 'KaiTi', '楷体', serif;
   --font-cjk: 'SimKai', 'KaiTi', '楷体', serif;
 
   /* Scale */

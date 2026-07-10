@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   var html = document.documentElement;
   var toggle = document.getElementById('lang-toggle');
 
@@ -7,6 +7,7 @@
     en: {
       intro: "Hi! I'm Elian",
       "hero-text": "One Step Out",
+      "hero-subtitle": "",
       "nav-about": "About Me",
       "nav-thoughts": "Thoughts",
       "nav-podcast": "Podcast",
@@ -40,11 +41,15 @@
       "podcast-transcript-hide": "Hide Transcript",
       "podcast-transcript-download": "Download Transcript",
       "podcast-transcript-loading": "Loading transcript...",
-      "podcast-transcript-none": "No transcript available"
+      "podcast-transcript-none": "No transcript available",
+      "search-thoughts": "Search articles...",
+      "search-podcast": "Search episodes...",
+      "search-no-results": "No results found"
     },
     zh: {
       intro: "你好，我是Elian",
       "hero-text": "一步向外",
+      "hero-subtitle": "一步向外",
       "nav-about": "关于我",
       "nav-thoughts": "想法",
       "nav-podcast": "播客",
@@ -78,7 +83,10 @@
       "podcast-transcript-hide": "隐藏字幕",
       "podcast-transcript-download": "下载字幕",
       "podcast-transcript-loading": "加载字幕中…",
-      "podcast-transcript-none": "暂无字幕"
+      "podcast-transcript-none": "暂无字幕",
+      "search-thoughts": "搜索文章...",
+      "search-podcast": "搜索播客...",
+      "search-no-results": "无匹配结果"
     }
   };
 
@@ -98,10 +106,22 @@
     html.lang = lang === 'zh' ? 'zh-CN' : 'en';
     toggle.textContent = lang === 'zh' ? 'E' : '中';
 
+    /* Re-trigger hero animation on language switch */
+    if (window.revealHero) {
+      setTimeout(window.revealHero, 50);
+    }
+
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.dataset.i18n;
       if (dict[lang] && dict[lang][key]) {
         el.textContent = dict[lang][key];
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+      var key = el.dataset.i18nPlaceholder;
+      if (dict[lang] && dict[lang][key]) {
+        el.setAttribute('placeholder', dict[lang][key]);
       }
     });
 
