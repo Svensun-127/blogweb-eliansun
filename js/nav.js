@@ -63,7 +63,7 @@
       },
       en: {
         title: 'Composed on the Tenth Day of the Sixth Month',
-        poem: 'Though mountains tower, the traveler finds a way,\nWhere waters deepen, a ferryman appears.\nA single duckweed leaf drifts toward the vast sea —\nWhere in this life does spring not find you?',
+        poem: 'Though mountains tower, the traveler finds a way,\nDeep waters always bear a ferryman.\nA lone duckweed leaf finds its way to the boundless sea —\nWhere in this life does spring not come to meet you?',
         signature: '------Written after the Gaokao, June 10, 2025'
       }
     },
@@ -76,7 +76,7 @@
       },
       en: {
         title: 'Freedom',
-        poem: 'Freedom is a meal that takes an hour to finish\nFreedom is stopping anytime — to rest, to hear a song, to feel the wind\nFreedom is never looking at the numbers on the clock\nFreedom is also distance, is escape\nWhat you search for so desperately may already be right beside you',
+        poem: 'Freedom is a meal that takes an hour to finish\nFreedom is stopping anytime — to rest, to hear a song, to feel the wind\nFreedom is never looking at the numbers on the clock\nFreedom is also distance, is escape\nWhat you seek so desperately may already be right beside you',
         signature: '------Ningbo, April 24, 2026'
       }
     },
@@ -90,29 +90,19 @@
       en: {
         title: 'Reading Notes on The World Is Both Cruel and Tender',
         poem: '1. This takes me back to my middle school days, when teachers often spoke of an unfolding energy crisis and urged us to conserve resources for the planet\'s sustainable future. But what I came to understand as I grew older was the opposite: the world\'s energy is far from depleted. New energy sources multiply by the day, and energy prices keep falling. With breakthroughs in American shale gas, renewables, and battery technology, oil prices have repeatedly hit new lows.\n\n2. When it comes to investing, you\'re ultimately investing in people. A company\'s destiny is deeply tied to its founder\'s vision. The field you choose, the track you race on, the mindset and character you carry — these determine what you will ultimately become. A fly and a human share remarkably similar genes, yet from the very first day, those genes decide whether you\'ll grow into the soul of a person or the soul of a fly.\n\n3. I believe there is only one measure of being a true adult: whether you can make a choice freely, whether you understand the price of that choice, and whether you are willing to bear the responsibility for it. This is the sole standard for judging whether a person, a community, or even a nation has come of age — and the key measure of whether someone is truly rational.\n\n4. When I was very young, a group of people taught me the definition of "stability." Stability is wearing a dead expression at work, pouring tea, reading the newspaper, the fire of passion long extinguished — where it doesn\'t matter if you try or not, and any flicker of genuine excitement feels like an embarrassing joke. Stability is where the earnest and hardworking seem like fools, while those who coast by and do the bare minimum appear as prophets who have grasped the truth ahead of everyone else. Stability is a world that no longer needs you, where anyone can replace you, where you have no value at all — yet you can still escape punishment through laziness and sloth.\n\n5. Why did I want to go to America? Because this country has a different spirit. The moment I arrived, my entire mindset shifted — I felt like a citizen of the world, as if everything happening anywhere had become my concern. Back at Peking University, plenty of classmates chose to go to the Netherlands, Italy, Germany, France, and other European countries after graduation. The spirit of those countries, I think, can be captured in four words: "small country, small people." The whole nation radiates a feeling of "the rest of humanity has nothing to do with me — I\'m happy as long as I\'m content." I\'m not saying this spirit is wrong — it just doesn\'t match who I am. When choosing which country to go to, you must be clear about what kind of person you are. My family was very ordinary — my parents tightened their belts to send me to study in America. I wasn\'t yet in a position to change anything, but in thought and spirit, at least, I cared about grander things, carried a larger vision. That\'s something only a world citizen in America could embrace and enjoy.\n\n6. When my company interviews candidates, what we care about most is: What kind of progress do you love? How do you see the future? What are your plans for the next 5 to 10 years? I\'ve met many people with impressive backgrounds — elite university degrees, experience at big-name companies — but they had never even thought about a plan for the next 1 to 3 years. That\'s the difference between vision and small-mindedness. For us, such candidates are simply unqualified and won\'t be hired. To my knowledge, many internet companies look for this same quality when hiring, and so people with an incremental-growth mindset tend to advance more easily in internet companies.\n\n7. The best way to cultivate vision is to go see the world and broaden your horizons. If you aspire to business, you must attend at least one summit and see Jack Ma in person — because once you\'ve seen the very best, you can never settle back into mediocrity. If you\'re an entrepreneur, you should attend lectures by chairmen of NASDAQ-listed companies — at that point, your subconscious natural benchmark for starting a business becomes them. If you\'re in scientific research, you should take a class from a Nobel laureate — when you see them, you can\'t bear to go back to plagiarizing papers and scraping by under the table. Once you\'ve witnessed the realm of the finest minds, you simply won\'t allow yourself to stay where you are.\n\n8. Stay in Beijing, Shanghai, or Guangzhou, and even if you fail, you can start over from scratch. Go back to a small city, and everything ends forever. To live in finery within another\'s palace is tasteless — your fate is in someone else\'s hands, and even if you possess everything, it can all burn to ashes overnight. But in your own city, hardship is only temporary, and happiness will last forever.',
+        signature: '------from The World Is Both Cruel and Tender'
+      }
     },
     '4': {
       date: '2026-07-20',
       zh: {
         title: '投资笔记001',
-        poem: '前两天芯片存储股回调，买了$BE，因为市价单滑点大和错误择时，把5、6月份的涨幅全吞没了。
-
-最新操作：只保留TSLA、VOO、VGSH
-
-经验：买自己熟悉的标的，不追热点。
-
-$SPCX 目标买入价：97$，>10股',
+        poem: '前两天芯片存储股回调，买了$BE，因为市价单滑点大和错误择时，把5、6月份的涨幅全吞没了。\n\n最新操作：只保留TSLA、VOO、VGSH\n\n经验：买自己熟悉的标的，不追热点。\n\n$SPCX 目标买入价：97$，>10股',
         signature: ''
       },
       en: {
         title: 'Investment Notes 001',
-        poem: 'A couple of days ago, chip storage stocks pulled back. I bought $BE, but heavy market-order slippage and poor timing wiped out all the gains from May and June.
-
-Latest moves: holding only TSLA, VOO, VGSH.
-
-Lesson: buy what you know. Don\'t chase the heat.
-
-$SPCX target entry: $97, >10 shares',
+        poem: 'A couple of days ago, chip storage stocks pulled back. I bought $BE, but heavy market-order slippage and poor timing wiped out all the gains from May and June.\n\nLatest moves: holding only TSLA, VOO, VGSH.\n\nLesson: buy what you know. Don\'t chase the heat.\n\n$SPCX target entry: $97, >10 shares',
         signature: ''
       }
     }
