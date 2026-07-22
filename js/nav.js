@@ -63,7 +63,7 @@
       },
       en: {
         title: 'Composed on the Tenth Day of the Sixth Month',
-        poem: 'Though mountains tower, the traveler finds a way,\nDeep waters always bear a ferryman.\nA lone duckweed leaf finds its way to the boundless sea —\nWhere in this life does spring not come to meet you?',
+        poem: 'High mountains still hold paths for the wanderer,\nDeep waters always bear a ferryman.\nA lone duckweed leaf finds its way to the boundless sea —\nWhere in this life does spring not come to meet you?',
         signature: '------Written after the Gaokao, June 10, 2025'
       }
     },
