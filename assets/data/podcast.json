@@ -8,6 +8,30 @@
   },
   "episodes": [
     {
+      "guid": "6a5f79856356eb2d9be6325e",
+      "title": "EP10:Talk English with GPT Live",
+      "pubDate": "2026-07-21",
+      "duration": "",
+      "audioUrl": "https://dts-api.xiaoyuzhoufm.com/track/69edf6c5a34c254dba8ffdc6/6a5f79856356eb2d9be6325e/media.xyzcdn.net/69edf6c5a34c254dba8ffdc6/lgeGgdPbHmEYZuMPKK_RBtqd5lU4.m4a",
+      "image": "https://image.xyzcdn.net/Fp4Sxg8IdAiaTjR-ARxliuoayW_c.png",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a5f79856356eb2d9be6325e?utm_source=rss",
+      "description": "Talk English with GPT Live",
+      "hasTranscript": false,
+      "hasChineseTranscript": false
+    },
+    {
+      "guid": "6a4f1fc33fb7233cbf461a48",
+      "title": "EP9:Book review: How to Win friends and Influence People",
+      "pubDate": "2026-07-09",
+      "duration": "",
+      "audioUrl": "https://dts-api.xiaoyuzhoufm.com/track/69edf6c5a34c254dba8ffdc6/6a4f1fc33fb7233cbf461a48/media.xyzcdn.net/69edf6c5a34c254dba8ffdc6/lg5ZS9ikLCD4jzdzc1AnMhRD97qj.m4a",
+      "image": "https://image.xyzcdn.net/FjPVc3v-EbQoBHsXvNuK1n6mDXKm.jpg",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a4f1fc33fb7233cbf461a48?utm_source=rss",
+      "description": "Carnegie’s Classic: Communication Principles to Win Friends and Influence People",
+      "hasTranscript": false,
+      "hasChineseTranscript": false
+    },
+    {
       "guid": "6a3d2a0e9d2f5743683dd7af",
       "title": "EP8: Is it ok to practice English with AI?",
       "pubDate": "2026-06-25",
