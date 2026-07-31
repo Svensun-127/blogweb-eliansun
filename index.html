@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/podcast.css">
   <link rel="stylesheet" href="css/thoughts.css">
   <link rel="stylesheet" href="css/search.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 </head>
 <body>
   <div id="controls">
@@ -131,28 +132,12 @@
               <input type="text" class="search-input" data-i18n-placeholder="search-thoughts" placeholder="" data-i18n="search-thoughts" autocomplete="off">
               <button class="search-clear" aria-label="Clear search" style="display:none">&times;</button>
             </div>
-            <div class="thoughts-list">
-              <article class="thought-entry" data-thought-id="3">
-                <h3 class="thought-title">《这世界即残酷又温柔》读书笔记</h3>
-                <p class="thought-excerpt">这让我回想起自己上初中的时候，老师经常讲当今世界出现了能源危机...</p>
-                <time class="thought-date" datetime="2026-07-02">2026-07-02</time>
-              </article>
-              <article class="thought-entry" data-thought-id="2">
-                <h3 class="thought-title">《自由》</h3>
-                <p class="thought-excerpt">自由是一顿饭吃一个小时...</p>
-                <time class="thought-date" datetime="2026-04-24">2026-04-24</time>
-              </article>
-              <article class="thought-entry" data-thought-id="1">
-                <h3 class="thought-title">《庆丰十二年六月十日作》</h3>
-                <p class="thought-excerpt">山高自有客行路，...</p>
-                <time class="thought-date" datetime="2025-06-10">2025-06-10</time>
-              </article>
-            </div>
+            <div class="thoughts-list"></div>
             <div class="search-no-results" style="display:none" data-i18n="search-no-results">No results found</div>
           </div>
           <!-- 文章详情视图（初始隐藏，JS 动态填充内容） -->
           <div id="thought-detail-view" style="display:none">
-            <button id="thought-back-btn" class="thought-back-btn">← 返回列表</button>
+            <button id="thought-back-btn" class="thought-back-btn" data-i18n="thought-back">← Back to list</button>
             <article class="thought-detail-article">
               <h3 class="thought-title"></h3>
               <div class="thought-body">
@@ -252,6 +237,8 @@
     </section>
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/theme.js"></script>
   <script src="js/i18n.js"></script>

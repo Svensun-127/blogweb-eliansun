@@ -44,7 +44,8 @@
       "podcast-transcript-none": "No transcript available",
       "search-thoughts": "Search articles...",
       "search-podcast": "Search episodes...",
-      "search-no-results": "No results found"
+      "search-no-results": "No results found",
+      "thought-back": "← Back to list"
     },
     zh: {
       intro: "你好，我是Elian",
@@ -86,7 +87,8 @@
       "podcast-transcript-none": "暂无字幕",
       "search-thoughts": "搜索文章...",
       "search-podcast": "搜索播客...",
-      "search-no-results": "无匹配结果"
+      "search-no-results": "无匹配结果",
+      "thought-back": "← 返回列表"
     }
   };
 
@@ -128,6 +130,11 @@
     /* 通知 podcast.js 重渲染字幕（语言切换联动） */
     if (window.updateTranscriptLang) {
       window.updateTranscriptLang();
+    }
+
+    /* 语言切换时重渲染文章列表 */
+    if (window.renderThoughtList) {
+      window.renderThoughtList(lang);
     }
   }
 })();

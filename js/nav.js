@@ -105,6 +105,19 @@
         poem: 'A couple of days ago, chip storage stocks pulled back. I bought $BE, but heavy market-order slippage and poor timing wiped out all the gains from May and June.\n\nLatest moves: holding only TSLA, VOO, VGSH.\n\nLesson: buy what you know. Don\'t chase the heat.\n\n$SPCX target entry: $97, >10 shares',
         signature: ''
       }
+    },
+    '5': {
+      date: '2026-07-31',
+      zh: {
+        title: '投资笔记002',
+        poem: '特斯拉crash了，可能与财报盈利下降有关，这算杀估值吗？\n不过，依旧，下跌就是加仓的好机会，只要你认可特斯拉FSD、Robotaxi、Optimus在可见未来的巨大潜力，那么特斯拉目前不贵，所以让我们现实一点：TSLA 今年目标价 450$。\n\n更理性地思考，其实下面有种专业的方法计算特斯拉的公允价值和买入价（参考Gary Black使用的DCF模型）：\n\n假设2030年特斯拉EPS = 7.75$\n假设长期收益增长率（CAGR）为 35%\n已知PEG = PE ÷ 预期长期 EPS 增长率（%）\n假设PEG = 2\n\n1. PE 倍数\nPE = PEG × 长期增长率\nPE = 2 × 35 = 70 倍\n\n2. 2030 年目标价格（未折现）\n目标价 = EPS_{2030} × PE\n目标价 = 7.75 × 70 = 542.5 美元\n\n3. 当前公允价值（折现后）\n$$\n\\text{Fair Value} = \\frac{\\text{EPS}_{2030} \\times \\text{PE}}{(1 + r)^n} = \\frac{7.75 \\times 70}{(1.148)^4} \\approx 312\\text{ 美元}\n$$\n\n其中：\n- n = 4 年（折现期）\n- r 的详细解释：\nr 是折现率（Discount Rate）或者风险调整后的权益成本（Cost of Equity）\nr 用于将 2030 年的未来价值折现回当前（2026 年）\n\n- 计算公式：\nr = 无风险利率 + Beta × 股权风险溢价\n= 4.6%（10 年期国债收益率） + 1.7 × 6%（ERP） = 14.8%\n\n作用：投资者投资 TSLA 所要求的最低回报率（考虑无风险收益 + 股票风险补偿）。r 越高，折现后现值越低，估值越保守。\n\n4. 建议买入价\nBuy Price = Fair Value × 80%（20% 安全边际）\nBuy Price = 312 × 0.8 = 250 美元\n\n--- Gary Black\n\n让我们拭目以待！\n\n顺便说一句，SPCX 目标买入价：97$，>10股。星舰 Starship 13 次发射很顺利，航天板块，依旧看好 SPCX！',
+        signature: ''
+      },
+      en: {
+        title: 'Investment Notes 002',
+        poem: 'Tesla crashed — likely tied to declining earnings in its latest financial report. Does this qualify as a valuation kill?\n\nBut still, every dip is a chance to add to your position. If you believe in the vast potential of Tesla FSD, Robotaxi, and Optimus over the visible horizon, then Tesla is not expensive today. So let\'s be grounded: TSLA year-end target, $450.\n\nThinking more rigorously, here is a professional method for estimating Tesla\'s fair value and buy price (drawing on the DCF model used by Gary Black):\n\nAssume 2030 Tesla EPS = $7.75\nAssume long-term earnings growth rate (CAGR) = 35%\nGiven PEG = PE ÷ Expected long-term EPS growth rate (%)\nAssume PEG = 2\n\n1. PE Multiple\nPE = PEG × Long-term growth rate\nPE = 2 × 35 = 70x\n\n2. 2030 Target Price (Undiscounted)\nTarget Price = EPS_{2030} × PE\nTarget Price = 7.75 × 70 = $542.50\n\n3. Current Fair Value (Discounted)\n$$\n\\text{Fair Value} = \\frac{\\text{EPS}_{2030} \\times \\text{PE}}{(1 + r)^n} = \\frac{7.75 \\times 70}{(1.148)^4} \\approx \\$312\n$$\n\nWhere:\n- n = 4 years (discount period)\n- Explanation of r:\nr is the discount rate, or the risk-adjusted cost of equity.\nr is used to discount the future value in 2030 back to the present (2026).\n\n- Formula:\nr = Risk-free rate + Beta × Equity risk premium\n= 4.6% (10-year Treasury yield) + 1.7 × 6% (ERP) = 14.8%\n\nPurpose: The minimum rate of return investors require to invest in TSLA (accounting for the risk-free rate plus equity risk compensation). The higher r is, the lower the discounted present value, and the more conservative the valuation.\n\n4. Suggested Buy Price\nBuy Price = Fair Value × 80% (20% margin of safety)\nBuy Price = 312 × 0.8 = $250\n\n--- Gary Black\n\nLet\'s wait and see!\n\nOn a side note, SPCX target buy price: $97, >10 shares. Starship\'s 13th test flight went off smoothly — I remain bullish on the space sector and SPCX!',
+        signature: ''
+      }
     }
   };
 
@@ -118,10 +131,29 @@
     return firstLine + '...';
   }
 
+  /* 对 poem 内容做 HTML 转义但保留换行 */
+  function escapeHTML(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+  /* 渲染 poem 到 detail 并触发 KaTeX */
+  function renderDetailPoem(poemHTML) {
+    if (!detailPoem) return;
+    detailPoem.innerHTML = poemHTML;
+    if (window.renderMathInElement) {
+      renderMathInElement(detailView, {
+        delimiters: [{left: '$$', right: '$$', display: true}],
+        ignoredTags: ["script", "noscript", "style", "textarea", "code", "option"]
+      });
+    }
+  }
+
   /* 动态渲染文章列表 */
   function renderThoughtList(lang) {
     if (!thoughtList) return;
-    var ids = ['4', '3', '2', '1']; // 最新在前
+    var ids = ['5', '4', '3', '2', '1'];
     var html = '';
     ids.forEach(function (id) {
       var d = thoughtData[id];
@@ -141,17 +173,11 @@
       var d2 = thoughtData[currentThoughtId];
       var c2 = d2 && d2[lang];
       if (c2) {
-        if (detailTitle) detailTitle.textContent = c2.title;
-        if (detailPoem) detailPoem.textContent = c2.poem;
-        if (detailSignature) detailSignature.textContent = c2.signature || '';
+        if (detailTitle) detailTitle.innerHTML = c2.title;
+        renderDetailPoem(c2.poem);
+        if (detailSignature) detailSignature.innerHTML = c2.signature || '';
       }
     }
-  }
-
-  function escapeHTML(str) {
-    var div = document.createElement('div');
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
   }
 
   function openThoughtDetail(id) {
@@ -160,9 +186,9 @@
     var lang = getLang();
     var d = thoughtData[id][lang];
     if (!d) return;
-    if (detailTitle) detailTitle.textContent = d.title;
-    if (detailPoem) detailPoem.textContent = d.poem;
-    if (detailSignature) detailSignature.textContent = d.signature || '';
+    if (detailTitle) detailTitle.innerHTML = d.title;
+    renderDetailPoem(d.poem);
+    if (detailSignature) detailSignature.innerHTML = d.signature || '';
     listView.style.display = 'none';
     detailView.style.display = 'flex';
   }
