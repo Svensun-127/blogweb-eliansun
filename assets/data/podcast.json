@@ -8,6 +8,18 @@
   },
   "episodes": [
     {
+      "guid": "6a6c883fb581962ce2be9605",
+      "title": "EP11: Getting ready to go to New Zealand!",
+      "pubDate": "2026-07-31",
+      "duration": "",
+      "audioUrl": "https://dts-api.xiaoyuzhoufm.com/track/69edf6c5a34c254dba8ffdc6/6a6c883fb581962ce2be9605/media.xyzcdn.net/69edf6c5a34c254dba8ffdc6/lk9R3HYEbhbqUYLMqlgGtJ5sQ9zN.m4a",
+      "image": "https://image.xyzcdn.net/FuNgftDHqCdK8Q_-gVBeUjWjQ8XK.png",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a6c883fb581962ce2be9605?utm_source=rss",
+      "description": "Practice my English for this trip!",
+      "hasTranscript": false,
+      "hasChineseTranscript": false
+    },
+    {
       "guid": "6a5f79856356eb2d9be6325e",
       "title": "EP10:Talk English with GPT Live",
       "pubDate": "2026-07-21",
