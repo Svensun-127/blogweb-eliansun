@@ -161,7 +161,7 @@
 /* ====== Entrance Animation: fade-in from left (0.8s ease-out) ====== */
 #hero-text {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 4rem);
+  font-size: clamp(2.15rem, 4.4vw, 4.4rem);
   font-weight: 400;
   line-height: 1.35;
   letter-spacing: 0.01em;
@@ -267,7 +267,7 @@ html[lang|="zh"] #hero-text span {
   border: none;
   font-family: var(--font-display);
   font-size: 1.85rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--color-muted);
   letter-spacing: 0.02em;
   transition: color var(--transition-fast), letter-spacing var(--transition-fast), transform 150ms var(--ease-out-expo);
