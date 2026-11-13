@@ -36,6 +36,10 @@
   animation: aboutItemIn 500ms var(--ease-out-expo) forwards;
 }
 
+[data-theme="light"] .about-section .about-list li {
+  color: var(--color-text);
+}
+
 .about-section .about-list li::before {
   content: '\00B7\00a0';         /* middle dot · (replaces em-dash — AI Tell ban) */
   color: var(--color-border);
