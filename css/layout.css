@@ -70,11 +70,6 @@
   transition: transform var(--transition-slow);
 }
 
-[data-theme="light"] #logo-container .avatar-dark,
-[data-theme="dark"] #logo-container .avatar-light {
-  display: none;
-}
-
 #logo-container:hover img {
   transform: scale(1.02);
 }
@@ -344,8 +339,8 @@ html[lang|="zh"] #hero-text span {
 /* Social icon row (GitHub + X) */
 #about-info .about-item-social {
   display: flex;
-  flex-direction: row !important;
-  align-items: center;
+  flex-direction: column !important;
+  align-items: flex-start;
   gap: 1.2rem;
 
   /* Disable parent hover shift - each icon moves independently */
