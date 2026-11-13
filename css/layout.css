@@ -173,6 +173,22 @@
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
+#hero-text span {
+  display: block;
+  white-space: nowrap;
+  text-align: left;
+}
+
+#hero-text .hero-line-second {
+  padding-left: clamp(3rem, 8vw, 7rem);
+}
+
+html[lang|="zh"] #hero-text span {
+  display: inline;
+  white-space: normal;
+  padding-left: 0;
+}
+
 #hero-text.revealed {
   opacity: 1;
   transform: translateX(0);

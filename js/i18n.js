@@ -6,7 +6,8 @@
   var dict = {
     en: {
       intro: "Hi! I'm Elian",
-      "hero-text": "Mind arises, unattached",
+      "hero-line-first": "Mind arises,",
+      "hero-line-second": "unattached",
       "hero-subtitle": "",
       "nav-about": "About Me",
       "nav-thoughts": "Blog",
@@ -49,7 +50,8 @@
     },
     zh: {
       intro: "你好，我是Elian",
-      "hero-text": "应无所住，而生其心",
+      "hero-line-first": "应无所住，",
+      "hero-line-second": "而生其心",
       "hero-subtitle": "一步向外",
       "nav-about": "关于我",
       "nav-thoughts": "博客",
