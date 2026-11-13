@@ -140,33 +140,6 @@
   background: var(--color-bg);
 }
 
-/* Gradient drift pseudo-element — slow animated radial gradients */
-#hero-banner::before {
-  content: '';
-  position: absolute;
-  inset: -5%;
-  z-index: 0;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(11, 26, 48, 0.03) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 50%, rgba(11, 26, 48, 0.04) 0%, transparent 60%);
-  animation: heroGradientDrift 24s ease-in-out infinite;
-  pointer-events: none;
-}
-
-[data-theme="dark"] #hero-banner::before {
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(247, 245, 227, 0.10) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 50%, rgba(247, 245, 227, 0.08) 0%, transparent 60%);
-}
-
-@keyframes heroGradientDrift {
-  0%   { transform: translate(0, 0) scale(1); }
-  25%  { transform: translate(0.8%, -0.4%) scale(1.03); }
-  50%  { transform: translate(0, -1%) scale(1); }
-  75%  { transform: translate(-0.6%, -0.3%) scale(1.02); }
-  100% { transform: translate(0, 0) scale(1); }
-}
-
 #hero-overlay {
   position: absolute;
   inset: 0;
