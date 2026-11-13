@@ -11,19 +11,19 @@ body::before {
   background:
     linear-gradient(#b5ccef, #b5ccef) 5% 12% / 2px 2px no-repeat,
     linear-gradient(#b5ccef, #b5ccef) 14% 37% / 2px 2px no-repeat,
-    linear-gradient(#b5ccef, #b5ccef) 23% 78% / 2px 2px no-repeat,
-    linear-gradient(#b5ccef, #b5ccef) 30% 19% / 2px 2px no-repeat,
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%205%205%22%20shape-rendering%3D%22crispEdges%22%3E%3Cpath%20fill%3D%22%23c3d8f8%22%20d%3D%22M2%200h1v1h1v1h1v1H4v1H3v1H2V4H1V3H0V2h1V1h1z%22%2F%3E%3C%2Fsvg%3E") 23% 78% / 5px 5px no-repeat,
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%207%207%22%20shape-rendering%3D%22crispEdges%22%3E%3Cpath%20fill%3D%22%23d5e4ff%22%20d%3D%22M3%200h1v3h3v1H4v3H3V4H0V3h3z%22%2F%3E%3C%2Fsvg%3E") 30% 19% / 7px 7px no-repeat,
     linear-gradient(#b5ccef, #b5ccef) 36% 62% / 1px 1px no-repeat,
     linear-gradient(#b5ccef, #b5ccef) 42% 89% / 2px 2px no-repeat,
-    linear-gradient(#b5ccef, #b5ccef) 48% 31% / 2px 2px no-repeat,
-    linear-gradient(#b5ccef, #b5ccef) 54% 69% / 2px 2px no-repeat,
+    linear-gradient(#d8e6fa, #d8e6fa) 48% 31% / 3px 3px no-repeat,
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%205%205%22%20shape-rendering%3D%22crispEdges%22%3E%3Cpath%20fill%3D%22%23c3d8f8%22%20d%3D%22M2%200h1v1h1v1h1v1H4v1H3v1H2V4H1V3H0V2h1V1h1z%22%2F%3E%3C%2Fsvg%3E") 54% 69% / 5px 5px no-repeat,
     linear-gradient(#b5ccef, #b5ccef) 60% 9% / 1px 1px no-repeat,
     linear-gradient(#b5ccef, #b5ccef) 65% 52% / 2px 2px no-repeat,
     linear-gradient(#b5ccef, #b5ccef) 70% 83% / 2px 2px no-repeat,
-    linear-gradient(#b5ccef, #b5ccef) 75% 24% / 2px 2px no-repeat,
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%205%205%22%20shape-rendering%3D%22crispEdges%22%3E%3Cpath%20fill%3D%22%23b8cff3%22%20d%3D%22M2%200h1v2h2v1H3v2H2V3H0V2h2z%22%2F%3E%3C%2Fsvg%3E") 75% 24% / 5px 5px no-repeat,
     linear-gradient(#b5ccef, #b5ccef) 81% 66% / 1px 1px no-repeat,
     linear-gradient(#b5ccef, #b5ccef) 87% 14% / 2px 2px no-repeat,
-    linear-gradient(#b5ccef, #b5ccef) 92% 43% / 2px 2px no-repeat,
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%205%205%22%20shape-rendering%3D%22crispEdges%22%3E%3Cpath%20fill%3D%22%23b8cff3%22%20d%3D%22M2%200h1v2h2v1H3v2H2V3H0V2h2z%22%2F%3E%3C%2Fsvg%3E") 92% 43% / 5px 5px no-repeat,
     linear-gradient(#b5ccef, #b5ccef) 96% 90% / 2px 2px no-repeat;
 }
 
@@ -46,7 +46,7 @@ body::after {
     linear-gradient(#c0d4f1, #c0d4f1) 20% 22% / 1px 1px no-repeat,
     linear-gradient(#c0d4f1, #c0d4f1) 39% 43% / 2px 2px no-repeat,
     linear-gradient(#c0d4f1, #c0d4f1) 50% 92% / 1px 1px no-repeat,
-    linear-gradient(#c0d4f1, #c0d4f1) 67% 35% / 2px 2px no-repeat,
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%205%205%22%20shape-rendering%3D%22crispEdges%22%3E%3Cpath%20fill%3D%22%23b8cff3%22%20d%3D%22M2%200h1v2h2v1H3v2H2V3H0V2h2z%22%2F%3E%3C%2Fsvg%3E") 67% 35% / 5px 5px no-repeat,
     linear-gradient(#c0d4f1, #c0d4f1) 82% 76% / 1px 1px no-repeat,
     linear-gradient(#c0d4f1, #c0d4f1) 94% 58% / 2px 2px no-repeat;
 }
