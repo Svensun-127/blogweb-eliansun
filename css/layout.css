@@ -160,6 +160,7 @@
 #hero-text {
   font-family: var(--font-display);
   font-size: var(--text-hero);
+  text-align: center;
   font-weight: 900;
   color: var(--color-text);
   letter-spacing: -0.03em;
